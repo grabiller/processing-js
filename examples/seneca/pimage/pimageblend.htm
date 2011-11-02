@@ -1,4 +1,9 @@
-﻿<script src="../../../processing.js"></script>
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="../../../processing.js"></script>
+</head>
+<body>
 Blended in PJS using 2 pimages<br />
 <canvas datasrc="pimageblend.pjs" width="200" height="200"></canvas>
 <div>P5 expected output<br /><img src="pimageblendexpected.jpg" /></div>
@@ -11,3 +16,5 @@ PImage img2 = loadImage("lake.jpg");
 img.blend(img2, 272, 138, 200, 128, 272, 138, 200, 128, HARD_LIGHT);
 image(img, 0, 0);
 </pre>
+</body>
+</html>
