@@ -1,36 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>MouseOver and MouseOut</h2>
+  <head>
+    <meta charset="utf=8">
+    <title>MouseOver and MouseOut</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+    <h2>MouseOver and MouseOut</h2>
+    <p>Mouse over the sketch, then mouse out. The background color should change for each.</p>
+    <p>
+      Processing.js only<br>
+      <script type="application/processing">
+        // Issue 670 
 
-<p>Mouse over the sketch, then mouse out. The background color should change for each.</p>
+        // Mouse over the window. Then move the mouse out.
+        // Does the background change color?
 
-<p>Processing.js only<br>
-<script type="application/processing">
-// Issue 670 
+        void setup() {
+          size(200,200);
+          background(10);
+        }
 
-// Mouse over the window. Then move the mouse out.
-// Does the background change color?
+        void draw() {}
 
-void setup() {
-  size(200,200);
-  background(10);
-}
+        void mouseOut() {
+          background(140,50,80);
+        }
 
-void draw() {}
-
-void mouseOut() {
-  background(140,50,80);
-}
-
-void mouseOver() {
-  background(50,80,140);
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
+        void mouseOver() {
+          background(50,80,140);
+        }
+      </script>
+      <canvas width="200" height="200"></canvas>
+    </p>
+    <div style="height:0px;width:0px;overflow:hidden;"></div>
 
 <pre><b>// written by Chris Lonnen</b>
 // Issue 670 
@@ -52,5 +57,6 @@ void mouseOut() {
 void mouseOver() {
   background(50,80,140);
 }</pre>
-</body>
+
+  </body>
 </html>

@@ -24,6 +24,7 @@ h2 {
 
 p {
   padding-left: 20px;
+  padding-right: 20px;
   line-height: 1.3em;
 }
 
@@ -42,6 +43,7 @@ pre {
   background: #FFF;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
+  overflow: auto;
 }
 
 div.ref-col {

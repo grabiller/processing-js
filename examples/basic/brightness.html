@@ -1,43 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Brightness</h2>
+  <head>
+    <meta charset="utf=8">
+    <title>Brightness</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+    <h2>Brightness</h2>
+    <p>by Rusty Robison. Brightness is the relative lightness or darkness of a color. Move the cursor vertically over each bar to alter its brightness.</p>
+    <p>
+      <a href="http://processing.org/learning/basics/brightness.html"><b>Original Processing.org Example:</b> Brightness</a><br>
+      <script type="application/processing">
+        int barWidth = 5;
+        int[] brightness;
 
-<p>by Rusty Robison. 
+        void setup() 
+        {
+          size(200, 200);
+          colorMode(HSB, 360, height, height);  
+          brightness = new int[width/barWidth];
+        }
 
-Brightness is the relative lightness or darkness of a color.
-Move the cursor vertically over each bar to alter its brightness.</p>
-
-<p><a href="http://processing.org/learning/basics/brightness.html"><b>Original Processing.org Example:</b> Brightness</a><br>
-<script type="application/processing">
-int barWidth = 5;
-int[] brightness;
-
-void setup() 
-{
-  size(200, 200);
-  colorMode(HSB, 360, height, height);  
-  brightness = new int[width/barWidth];
-}
-
-void draw() 
-{
-  int j = 0;
-  for (int i = 0; i <= (width-barWidth); i += barWidth) {  
-    noStroke();
-    if ((mouseX > i) && (mouseX < i+barWidth)) {
-      brightness[j] = mouseY;
-    }
-    fill(i, height, brightness[j]);
-    rect(i, 0, barWidth, height);  
-    j++;
-  }
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
+        void draw() 
+        {
+          int j = 0;
+          for (int i = 0; i <= (width-barWidth); i += barWidth) {  
+            noStroke();
+            if ((mouseX > i) && (mouseX < i+barWidth)) {
+              brightness[j] = mouseY;
+            }
+            fill(i, height, brightness[j]);
+            rect(i, 0, barWidth, height);  
+            j++;
+          }
+        }
+      </script>
+      <canvas width="200" height="200"></canvas>
+    </p>
+    <div style="height:0px;width:0px;overflow:hidden;"></div>
 
 <pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
 // unless otherwise stated.</b>
@@ -64,5 +66,6 @@ void draw()
     j++;
   }
 }</pre>
-</body>
+
+  </body>
 </html>

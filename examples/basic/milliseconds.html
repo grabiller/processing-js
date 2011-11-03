@@ -1,37 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Milliseconds</h2>
+  <head>
+    <meta charset="utf=8">
+    <title>Milliseconds</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+    <h2>Milliseconds</h2>
+    <p>A millisecond is 1/1000 of a second. Processing keeps track of the number of milliseconds a program has run. By modifying this number with the modulo(%) operator, different patterns in time are created.</p>
+    <p>
+      <a href="http://processing.org/learning/basics/milliseconds.html"><b>Original Processing.org Example:</b> Milliseconds</a><br>
+      <script type="application/processing">
+        float scale;
 
-<p>A millisecond is 1/1000 of a second. 
-Processing keeps track of the number of milliseconds a program has run.
-By modifying this number with the modulo(%) operator, 
-different patterns in time are created.</p>
+        void setup()
+        {
+          size(200, 200);
+          noStroke();
+          scale = width/10;
+        }
 
-<p><a href="http://processing.org/learning/basics/milliseconds.html"><b>Original Processing.org Example:</b> Milliseconds</a><br>
-<script type="application/processing">
-float scale;
-
-void setup()
-{
-  size(200, 200);
-  noStroke();
-  scale = width/10;
-}
-
-void draw()
-{ 
-  for(int i=0; i<scale; i++) {
-    colorMode(RGB, (i+1) * scale * 10);
-    fill(millis()%((i+1) * scale * 10) );
-    rect(i*scale, 0, scale, height);
-  }
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
+        void draw()
+        { 
+          for(int i=0; i<scale; i++) {
+            colorMode(RGB, (i+1) * scale * 10);
+            fill(millis()%((i+1) * scale * 10) );
+            rect(i*scale, 0, scale, height);
+          }
+        }
+      </script>
+      <canvas width="200" height="200"></canvas>
+    </p>
+    <div style="height:0px;width:0px;overflow:hidden;"></div>
 
 <pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
 // unless otherwise stated.</b>
@@ -52,5 +54,6 @@ void draw()
     rect(i*scale, 0, scale, height);
   }
 }</pre>
-</body>
+
+  </body>
 </html>

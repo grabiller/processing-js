@@ -1,50 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Arm</h2>
+  <head>
+    <meta charset="utf=8">
+    <title>Arm</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+    <h2>Arm</h2>
+    <p>The angle of each segment is controlled with the mouseX and mouseY position. The transformations applied to the first segment are also applied to the second segment because they are inside the same pushMatrix() and popMatrix() group.</p>
+    <p>
+      <a href="http://processing.org/learning/basics/arm.html"><b>Original Processing.org Example:</b> Arm</a><br>
+      <script type="application/processing">
+        float x = 50;
+        float y = 100;
+        float angle1 = 0.0;
+        float angle2 = 0.0;
+        float segLength = 50;
 
-<p>The angle of each segment is controlled with the mouseX and
-mouseY position. The transformations applied to the first segment
-are also applied to the second segment because they are inside
-the same pushMatrix() and popMatrix() group.</p>
+        void setup() {
+          size(200, 200);
+          smooth(); 
+          strokeWeight(20.0);
+          stroke(0, 100);
+        }
 
-<p><a href="http://processing.org/learning/basics/arm.html"><b>Original Processing.org Example:</b> Arm</a><br>
-<script type="application/processing">
-float x = 50;
-float y = 100;
-float angle1 = 0.0;
-float angle2 = 0.0;
-float segLength = 50;
+        void draw() {
+          background(226);
+          
+          angle1 = (mouseX/float(width) - 0.5) * -PI;
+          angle2 = (mouseY/float(height) - 0.5) * PI;
+          
+          pushMatrix();
+          segment(x, y, angle1); 
+          segment(segLength, 0, angle2);
+          popMatrix();
+        }
 
-void setup() {
-  size(200, 200);
-  smooth(); 
-  strokeWeight(20.0);
-  stroke(0, 100);
-}
-
-void draw() {
-  background(226);
-  
-  angle1 = (mouseX/float(width) - 0.5) * -PI;
-  angle2 = (mouseY/float(height) - 0.5) * PI;
-  
-  pushMatrix();
-  segment(x, y, angle1); 
-  segment(segLength, 0, angle2);
-  popMatrix();
-}
-
-void segment(float x, float y, float a) {
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
+        void segment(float x, float y, float a) {
+          translate(x, y);
+          rotate(a);
+          line(0, 0, segLength, 0);
+        }
+      </script>
+      <canvas width="200" height="200"></canvas>
+    </p>
+    <div style="height:0px;width:0px;overflow:hidden;"></div>
 
 <pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
 // unless otherwise stated.</b>
@@ -78,5 +80,6 @@ void segment(float x, float y, float a) {
   rotate(a);
   line(0, 0, segLength, 0);
 }</pre>
-</body>
+
+  </body>
 </html>
