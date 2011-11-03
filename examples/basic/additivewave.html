@@ -1,17 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>AdditiveWave</h2>
-
-<p>by Daniel Shiffman. 
-
-Create a more complex wave by adding two waves together.</p>
-
-<p><a href="http://processing.org/learning/basics/additivewave.html"><b>Original Processing.org Example:</b> AdditiveWave</a><br>
-<script type="application/processing">
+  <head>
+    <script src="../../../processing.js"></script>
+    <link rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+    <h2>AdditiveWave</h2>
+    <p>by Daniel Shiffman. Create a more complex wave by adding two waves together.</p>
+    <p><a href="http://processing.org/learning/basics/additivewave.html"><b>Original Processing.org Example:</b> AdditiveWave</a><br>
+      <script type="application/processing">
 int xspacing = 8;   // How far apart should each horizontal location be spaced
 int w;              // Width of entire wave
 int maxwaves = 4;   // total # of waves to add together
@@ -73,10 +71,12 @@ void renderWave() {
     ellipse(x*xspacing,width/2+yvalues[x],16,16);
   }
 }
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
+      </script>
+      <canvas width="200" height="200"></canvas>
+    </p>
+    <div style="height:0px;width:0px;overflow:hidden;"></div>
 
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
+    <pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
 // unless otherwise stated.</b>
 int xspacing = 8;   // How far apart should each horizontal location be spaced
 int w;              // Width of entire wave
@@ -138,6 +138,7 @@ void renderWave() {
   for (int x = 0; x &lt; yvalues.length; x++) {
     ellipse(x*xspacing,width/2+yvalues[x],16,16);
   }
-}</pre>
-</body>
+}
+    </pre>
+  </body>
 </html>
