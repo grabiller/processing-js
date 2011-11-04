@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>EmbeddedLinks</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Web</h4>
+    <h1>EmbeddedLinks</h1>
     <p>Click on the left button to open a different URL in the same window (Only works online). Click on the right button to open a URL in a new browser window. Created 21 June 2003.</p>
     <p>
       <a href="http://processing.org/learning/basics/embeddedlinks.html"><b>Original Processing.org Example:</b> EmbeddedLinks</a><br>
@@ -76,73 +76,12 @@
 
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-boolean overLeftButton = false;
-boolean overRightButton = false;
-
-void setup()
-{
-  size(200, 200);
-}
-
-void draw()
-{
-  background(204);
-  
-  // Left buttom
-  if(overLeftButton == true) {
-    fill(255);
-  } else {
-    noFill();
-  }
-  rect(20, 60, 75, 75);
-  rect(50, 90, 15, 15);
-  
-  // Right button
-  if(overRightButton == true) {
-    fill(255);
-  } else {
-    noFill();
-  }
-  rect(105, 60, 75, 75);
-  line(135, 105, 155, 85);
-  line(140, 85, 155, 85);
-  line(155, 85, 155, 100);
-}
-
-void mousePressed() 
-{
-  if(overLeftButton) { 
-    link("http://www.processing.org");
-  } else if (overRightButton) {
-    link("http://www.processing.org", "_new");
-  }
-}
-
-void mouseMoved() { 
-  checkButtons(); 
-}
-  
-void mouseDragged() {
-  checkButtons(); 
-}
-
-void checkButtons() {
-  if(mouseX &gt; 20 && mouseX &lt; 95 &&
-     mouseY &gt; 60 && mouseY &lt;135) {
-    overLeftButton = true;   
-  }  else if (mouseX &gt; 105 && mouseX &lt; 180 &&
-     mouseY &gt; 60 && mouseY &lt;135) {
-    overRightButton = true; 
-  } else {
-    overLeftButton = overRightButton = false;
-  }
-
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>IncrementDecrement</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
+    <h1>IncrementDecrement</h1>
     <p>Writing "a++" is equivalent to "a = a + 1". Writing "a--" is equivalent to "a = a - 1".</p>
     <p>
       <a href="http://processing.org/learning/basics/incrementdecrement.html"><b>Original Processing.org Example:</b> IncrementDecrement</a><br>
@@ -53,50 +53,12 @@
           line(b, height/2+1, b, height);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-int a;
-int b;
-boolean direction;
-
-void setup()
-{
-  size(200, 200);
-  colorMode(RGB, width);
-  a = 0;
-  b = width;
-  direction = true;
-  frameRate(30);
-}
-
-void draw()
-{
-  a++;
-  if(a &gt; width) {
-    a = 0;
-    direction = !direction;
-  }
-  if(direction == true){
-    stroke(a);
-  } else {
-    stroke(width-a);
-  }
-  line(a, 0, a, height/2);
-
-  b--;
-  if(b &lt; 0) {
-    b = width;
-  }
-  if(direction == true) {
-    stroke(width-b);
-  } else {
-    stroke(b);
-  }
-  line(b, height/2+1, b, height);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

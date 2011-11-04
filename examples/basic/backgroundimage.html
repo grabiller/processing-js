@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>BackgroundImage</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Image</h4>
+    <h1>BackgroundImage</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. <sup>-F1LT3R</sup></p>
     <p>This example presents the fastest way to load a background image into Processing. To load an image as the background, it must be the same width and height as the program.</p>
     <p>
@@ -39,36 +39,12 @@
           line(0, a-6, width, a-32);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-
-/* @pjs preload="data/milan_rubbish.jpg"; */
-
-PImage bg;
-int a; 
-
-void setup() 
-{
-  size(200,200);
-  frameRate(30);
-  // The background image must be the same size as the parameters
-  // into the size() method. In this program, the size of "milan_rubbish.jpg"
-  // is 200 x 200 pixels.
-  bg = loadImage("milan_rubbish.jpg");
-}
-
-void draw() 
-{
-  background(bg);
-
-  a = (a + 1)%(width+32);
-  stroke(226, 204, 0);
-  line(0, a, width, a-26);
-  line(0, a-6, width, a-32);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

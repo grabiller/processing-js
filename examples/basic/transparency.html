@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Transparency</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Image</h4>
+    <h1>Transparency</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. <sup>-F1LT3R</sup></p> 
     <p>Move the pointer left and right across the image to change its position. This program overlays one image over another by modifying the alpha value of the image with the tint() function.</p>
     <p>
@@ -36,33 +36,12 @@
           image(b, offset, 20);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-
-/* @pjs preload="data/construct.jpg,data/wash.jpg"; */
-
-PImage a, b;
-float offset;
-
-void setup() 
-{
-  size(200, 200);
-  a = loadImage("construct.jpg");  // Load an image into the program 
-  b = loadImage("wash.jpg");   // Load an image into the program 
-  frameRate(60);
-}
-
-void draw() 
-{ 
-  image(a, 0, 0);
-  float offsetTarget = map(mouseX, 0, width, -b.width/2 - width/2, 0);
-  offset += (offsetTarget-offset)*0.05; 
-  tint(255, 153);
-  image(b, offset, 20);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

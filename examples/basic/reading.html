@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Reading</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Color</h4>
+    <h1>Reading</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading.</p>
     <p>An image is recreated from its individual component colors. The many colors of the image are created through modulating the red, green, and blue values. This is an exageration of an LCD display.</p>
     <p>
@@ -50,44 +50,12 @@
 
         });
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-size(200, 200);
-noStroke();
-background(0);
-
-// Load an image from the data directory
-PImage c;
-c = loadImage("data/cait.jpg");
-
-int xoff = 0;
-int yoff = 0;
-int p = 2;
-int pix = p*3;
-
-
-for(int i = 0; i &lt; c.width*c.height; i += 1) 
-{  
-  int here = c.pixels[i];
-  
-  fill(red(here), 0, 0);
-  rect(xoff, yoff, p, pix);
-  
-  fill(0, green(here), 0);
-  rect(xoff+p, yoff, p, pix);
-  
-  fill(0, 0, blue(here));
-  rect(xoff+p*2, yoff, p, pix);
-  
-  xoff+=pix;
-  if(xoff &gt;= width-pix) {
-    xoff = 0;
-    yoff += pix;
-  }
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

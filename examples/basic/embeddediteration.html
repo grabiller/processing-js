@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>EmbeddedIteration</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Control</h4>
+    <h1>EmbeddedIteration</h1>
     <p>Embedding "for" structures allows repetition in two dimensions.</p>
     <p>
       <a href="http://processing.org/learning/basics/embeddediteration.html"><b>Original Processing.org Example:</b> EmbeddedIteration</a><br>
@@ -31,28 +31,12 @@
           box_size = box_size - 0.6; 
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float box_size = 11; 
-float box_space = 12; 
-int margin = 7; 
- 
-size(200, 200); 
-background(0); 
-noStroke(); 
- 
-// Draw gray boxes 
- 
-for(int i = margin; i &lt; width-margin; i += box_space) { 
-  for(int j = margin; j &lt; height-margin; j += box_space) { 
-    fill(255 - box_size*10); 
-    rect(j, i, box_size, box_size); 
-  } 
-  box_size = box_size - 0.6; 
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

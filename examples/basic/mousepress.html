@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>MousePress</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
+    <h1>MousePress</h1>
     <p>Move the mouse to position the shape. Press the mouse button to invert the color.</p>
     <p>
       <a href="http://processing.org/learning/basics/mousepress.html"><b>Original Processing.org Example:</b> MousePress</a><br>
@@ -29,26 +29,12 @@
           line(mouseX, mouseY-66, mouseX, mouseY+66); 
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-void setup() {
-  size(200, 200);
-  fill(126);
-  background(102);
-}
-
-void draw() {
-  if(mousePressed) {
-    stroke(255);
-  } else {
-    stroke(0);
-  }
-  line(mouseX-66, mouseY, mouseX+66, mouseY);
-  line(mouseX, mouseY-66, mouseX, mouseY+66); 
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

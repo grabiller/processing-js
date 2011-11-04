@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>MouseOver and MouseOut</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
+    <h1>MouseOver and MouseOut</h1>
     <p>Mouse over the sketch, then mouse out. The background color should change for each.</p>
     <p>
       Processing.js only<br>
@@ -33,29 +33,12 @@
           background(50,80,140);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// written by Chris Lonnen</b>
-// Issue 670 
-
-// Mouse over the window. Then move the mouse out.
-// Does the background change color?
-
-void setup() {
-  size(200,200);
-  background(10);
-}
-
-void draw() {}
-
-void mouseOut() {
-  background(140,50,80);
-}
-
-void mouseOver() {
-  background(50,80,140);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

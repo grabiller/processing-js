@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Noise1D</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
+    <h1>Noise1D</h1>
     <p>Using 1D Perlin Noise to assign location.</p>
     <p>
       <a href="http://processing.org/learning/basics/noise1d.html"><b>Original Processing.org Example:</b> Noise1D</a><br>
@@ -43,40 +43,12 @@
           ellipse(n,height/2,16,16);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float xoff = 0.0;
-float xincrement = 0.01; 
-
-void setup() {
-  size(200,200);
-  background(0);
-  frameRate(30);
-  smooth();
-  noStroke();
-}
-
-void draw()
-{
-  // Create an alpha blended background
-  fill(0, 10);
-  rect(0,0,width,height);
-  
-  //float n = random(0,width);  // Try this line instead of noise
-  
-  // Get a noise value based on xoff and scale it according to the window's width
-  float n = noise(xoff)*width;
-  
-  // With each cycle, increment xoff
-  xoff += xincrement;
-  
-  // Draw the ellipse at the value produced by perlin noise
-  fill(200);
-  ellipse(n,height/2,16,16);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Creating</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Color</h4>
+    <h1>Creating</h1>
     <p>Creating variables for colors that may be referred to in the program by their name, rather than a number.</p>
     <p>
       <a href="http://processing.org/learning/basics/creating.html"><b>Original Processing.org Example:</b> Creating</a><br>
@@ -33,30 +33,12 @@
         fill(inside);
         rect(60, 90, 80, 80);
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-size(200, 200);
-noStroke();
-
-color inside = color(204, 102, 0);
-color middle = color(204, 153, 0);
-color outside = color(153, 51, 0);
-
-// These statements are equivalent to the statements above.
-// Programmers may use the format they prefer.
-//color inside = #CC6600;
-//color middle = #CC9900;
-//color outside = #993300;
-
-fill(outside);
-rect(0, 0, 200, 200);
-fill(middle);
-rect(40, 60, 120, 120);
-fill(inside);
-rect(60, 90, 80, 80);</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

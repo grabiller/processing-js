@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Easing</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
+    <h1>Easing</h1>
     <p>Move the mouse across the screen and the symbol will follow. Between drawing each frame of the animation, the program calculates the difference between the position of the symbol and the cursor. If the distance is larger than
 1 pixel, the symbol moves half of the distance from its current position toward the cursor.</p>
     <p>
@@ -45,41 +45,12 @@
           ellipse(x, y, 33, 33);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float x;
-float y;
-float targetX, targetY;
-float easing = 0.05;
-
-void setup() 
-{
-  size(200, 200); 
-  smooth();
-  noStroke();  
-}
-
-void draw() 
-{ 
-  background( 51 );
-  
-  targetX = mouseX;
-  float dx = mouseX - x;
-  if(abs(dx) &gt; 1) {
-    x += dx * easing;
-  }
-  
-  targetY = mouseY;
-  float dy = mouseY - y;
-  if(abs(dy) &gt; 1) {
-    y += dy * easing;
-  }
-  
-  ellipse(x, y, 33, 33);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Displaying</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Image</h4>
+    <h1>Displaying</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. - F1LT3R</p>
     <p>Images can be displayed to the screen at their actual size or any other size.</p>
     <p>
@@ -17,23 +17,17 @@
         /* @pjs preload="data/jelly.jpg"; */
 
         size(200, 200);
-        PImage a;  
-        a = loadImage("data/jelly.jpg");
-        image(a, 0, 0);
+        PImage a; // Declare variable "a" of type PImage
+        a = loadImage("data/jelly.jpg"); // Load the images into the program
+        image(a, 0, 0); // Displays the image from point (0,0) when image data has been loaded
         image(a, width/2, 0, a.width/2, a.height/2);
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-/* @pjs preload="data/jelly.jpg"; */
-
-size(200, 200);
-PImage a;  // Declare variable "a" of type PImage
-a = loadImage("data/jelly.jpg");  // Load the images into the program
-image(a, 0, 0); // Displays the image from point (0,0) when image data has been loaded
-image(a, width/2, 0, a.width/2, a.height/2);</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Keyboard</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
+    <h1>Keyboard</h1>
     <p>Click on the image to give it focus and press the letter keys to create forms in time and space. Each key has a unique identifying number called it's ASCII value. These numbers can be used to position shapes in space.</p>
     <p>
       <a href="http://processing.org/learning/basics/keyboard.html"><b>Original Processing.org Example:</b> Keyboard</a><br>
@@ -45,42 +45,12 @@
           }
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-int numChars = 26;
-color[] colors = new color[numChars];
-int keyIndex;
-float keyScale;
-int rectWidth;
-
-    
-void setup()
-{
-  size(200, 200);
-  noStroke();
-  background(0);
-  keyScale = 200/numChars-1.0;
-  rectWidth = width/4;
-}
-
-void draw()
-{ 
-  if(keyPressed) {
-    if(key &gt;= 'A' && key &lt;= 'z') {
-      if(key &lt;= 'Z') {
-        keyIndex = key-'A';
-      } else {
-        keyIndex = key-'a';
-      }
-      fill(millis()%255);
-      float beginRect = rectWidth/2 + keyIndex*keyScale-rectWidth/2;
-      rect(beginRect, 0.0, rectWidth, height);
-    }
-  }
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

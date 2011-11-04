@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Recursion2</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Structure</h4>
+    <h1>Recursion2</h1>
     <p>A demonstration of recursion, which means functions call themselves. Notice how the drawCircle() function calls itself at the end of its block. It continues to do this until the variable "level" is equal to 1.</p>
     <p>
       <a href="http://processing.org/learning/basics/recursion2.html"><b>Original Processing.org Example:</b> Recursion2</a><br>
@@ -38,35 +38,12 @@
           }
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-void setup() 
-{
-  size(200, 200);
-  noStroke();
-  smooth();
-  drawCircle(100, 100, 80, 8);
-}
-
-void drawCircle(float x, float y, int radius, int level) 
-{                    
-  float tt = 126 * level/6.0;
-  fill(tt, 153);
-  ellipse(x, y, radius*2, radius*2);      
-  if(level &gt; 1) {
-    level = level - 1;
-    int num = int(random(2, 6));
-    for(int i=0; i&lt;num; i++) {
-      float a = random(0, TWO_PI);
-      float nx = x + cos(a) * 6.0 * level;
-      float ny = y + sin(a) * 6.0 * level;
-      drawCircle(nx, ny, radius/2, level);
-    }
-  }
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

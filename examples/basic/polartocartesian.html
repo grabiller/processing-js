@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>PolarToCartesian</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
+    <h1>PolarToCartesian</h1>
     <p>by Daniel Shiffman. Convert a polar coordinate (r,theta) to cartesian (x,y): x = rcos(theta) y = rsin(theta)</p>
     <p>
       <a href="http://processing.org/learning/basics/polartocartesian.html"><b>Original Processing.org Example:</b> PolarToCartesian</a><br>
@@ -53,50 +53,12 @@
 
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float r;
-
-// Angle and angular velocity, accleration
-float theta;
-float theta_vel;
-float theta_acc;
-
-void setup() {
-  size(200,200);
-  frameRate(30);
-  smooth();
-  
-  // Initialize all values
-  r = 50.0f;
-  theta = 0.0f;
-  theta_vel = 0.0f;
-  theta_acc = 0.0001f;
-}
-
-void draw() {
-  background(0);
-  // Translate the origin point to the center of the screen
-  translate(width/2,height/2);
-  
-  // Convert polar to cartesian
-  float x = r * cos(theta);
-  float y = r * sin(theta);
-  
-  // Draw the ellipse at the cartesian coordinate
-  ellipseMode(CENTER);
-  noStroke();
-  fill(200);
-  ellipse(x,y,16,16);
-  
-  // Apply acceleration and velocity to angle (r remains static in this example)
-  theta_vel += theta_acc;
-  theta += theta_vel;
-
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

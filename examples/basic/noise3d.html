@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Noise3D</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
+    <h1>Noise3D</h1>
     <p>Using 3D noise to create simple animated texture. Here, the third dimension ('z') is treated as time.</p>
     <p>
       <a href="http://processing.org/learning/basics/noise3d.html"><b>Original Processing.org Example:</b> Noise3D</a><br>
@@ -21,7 +21,7 @@
 
         void setup() {
           size(200,200);
-          frameRate(30);
+          frameRate(15);
         }
 
         void draw() {
@@ -57,55 +57,12 @@
           
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float increment = 0.01;
-// The noise function's 3rd argument, a global variable that increments once per cycle
-float zoff = 0.0;  
-// We will increment zoff differently than xoff and yoff
-float zincrement = 0.02; 
-
-void setup() {
-  size(200,200);
-  frameRate(30);
-}
-
-void draw() {
-  background(0);
-  
-  // Optional: adjust noise detail here
-  // noiseDetail(8,0.65f);
-  
-  loadPixels();
-
-  float xoff = 0.0; // Start xoff at 0
-  
-  // For every x,y coordinate in a 2D space, calculate a noise value and produce a brightness value
-  for (int x = 0; x &lt; width; x++) {
-    xoff += increment;   // Increment xoff 
-    float yoff = 0.0f;   // For every xoff, start yoff at 0
-    for (int y = 0; y &lt; height; y++) {
-      yoff += increment; // Increment yoff
-      
-      // Calculate noise and scale by 255
-      float bright = noise(xoff,yoff,zoff)*255;
-
-      // Try using this line instead
-      //float bright = random(0,255);
-      
-      // Set each pixel onscreen to a grayscale value
-      pixels[x+y*width] = color(bright,bright,bright);
-    }
-  }
-  updatePixels();
-  
-  zoff += zincrement; // Increment zoff
-  
-  
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>SineWave</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
+    <h1>SineWave</h1>
     <p>by Daniel Shiffman. Render a simple sine wave.</p>
     <p>
       <a href="http://processing.org/learning/basics/sinewave.html"><b>Original Processing.org Example:</b> SineWave</a><br>
@@ -61,58 +61,12 @@
           }
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-int xspacing = 8;   // How far apart should each horizontal location be spaced
-int w;              // Width of entire wave
-
-float theta = 0.0;       // Start angle at 0
-float amplitude = 75.0;  // Height of wave
-float period = 500.0;    // How many pixels before the wave repeats
-float dx;                 // Value for incrementing X, to be calculated as a function of period and xspacing
-float[] yvalues;          // Using an array to store height values for the wave (not entirely necessary)
-
-void setup() {
-  size(200,200);
-  frameRate(30);
-  colorMode(RGB,255,255,255,100);
-  smooth();
-  w = width+16;
-  dx = (TWO_PI / period) * xspacing;
-  yvalues = new float[w/xspacing];
-}
-
-void draw() {
-  background(0);
-  calcWave();
-  renderWave();
-
-}
-
-void calcWave() {
-  // Increment theta (try different values for 'angular velocity' here
-  theta += 0.02;
-
-  // For every x value, calculate a y value with sine function
-  float x = theta;
-  for (int i = 0; i &lt; yvalues.length; i++) {
-    yvalues[i] = sin(x)*amplitude;
-    x+=dx;
-  }
-}
-
-void renderWave() {
-  // A simple way to draw the wave with an ellipse at each location
-  for (int x = 0; x &lt; yvalues.length; x++) {
-    noStroke();
-    fill(255,50);
-    ellipseMode(CENTER);
-    ellipse(x*xspacing,width/2+yvalues[x],16,16);
-  }
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>CreateImage</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Image</h4>
+    <h1>CreateImage</h1>
     <p>The createImage() function provides a fresh buffer of pixels to play with. This example creates an image gradient.</p>
     <p>
       <a href="http://processing.org/learning/basics/createimage.html"><b>Original Processing.org Example:</b> CreateImage</a><br>
@@ -31,28 +31,12 @@
           image(img, mouseX-60, mouseY-60);
         }
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-PImage img;
-
-void setup() 
-{
-  size(200, 200);  
-  img = createImage(120, 120, RGB);
-  for(int i=0; i &lt; img.pixels.length; i++) {
-    img.pixels[i] = color(0, 90, 102, i%img.width * 2); 
-  }
-}
-
-void draw() 
-{
-  background(204);
-  image(img, 33, 33);
-  image(img, mouseX-60, mouseY-60);
-}</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>

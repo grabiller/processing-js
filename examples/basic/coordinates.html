@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
-    <h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-    <h2>Coordinates</h2>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Structure</h4>
+    <h1>Coordinates</h1>
     <p>All shapes drawn to the screen have a position that is specified as a coordinate. All coordinates are measured as the distance from the origin in units of pixels. The origin [0, 0] is the coordinate is in the upper left of the window and the coordinate in the lower right is [width-1, height-1].</p>
     <p>
       <a href="http://processing.org/learning/basics/coordinates.html"><b>Original Processing.org Example:</b> Coordinates</a><br>
@@ -46,43 +46,12 @@
         // and the second two are the width and height
         rect(110, 55, 40, 36);
       </script>
-      <canvas width="200" height="200"></canvas>
+      <canvas></canvas>
     </p>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-// Sets the screen to be 200, 200, so the width of the window is 200 pixels
-// and the height of the window is 200 pixels
-size(200, 200);
-background(0);
-noFill();
-stroke(255);
-
-// The two parameters of the point() method each specify coordinates.
-// This call to point() draws at the position [100, 100]
-point(width/2, height/2);
-
-// Draws to the position [100, 50]
-point(width/2, height/4); 
-
-// It is also possible to specify a point with any parameter, 
-// but only coordinates on the screen are visible
-point(60, 30);
-point(60, 134);
-point(160, 50);
-point(280, -800);
-point(201, 100);
-
-// Coordinates are used for drawing all shapes, not just points.
-// Parameters for different methods are used for different purposes.
-// For example, the first two parameters to line() specify the coordinates of the 
-// first point and the second two parameters specify the second point
-stroke(204);
-line(0, 73, width, 73);
-
-// The first two parameters to rect() are coordinates
-// and the second two are the width and height
-rect(110, 55, 40, 36);</pre>
-
+    <pre></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
+      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+    </script>
   </body>
 </html>
