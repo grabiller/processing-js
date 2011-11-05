@@ -11,38 +11,36 @@
     <h1>Pointillism</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. <sup>-F1LT3R</sup></p> 
     <p>by Daniel Shiffman. Mouse horizontal location controls size of dots. Creates a simple pointillist effect using ellipses colored according to pixels in an image.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/pointillism.html"><b>Original Processing.org Example:</b> Pointillism</a><br>
-      <script type="application/processing">
-        /* @pjs preload="data/eames.jpg"; */
+    <p><a href="http://processing.org/learning/basics/pointillism.html"><b>Original Processing.org Example:</b> Pointillism</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/eames.jpg"; */
 
-        PImage a;
+      PImage a;
 
-        void setup()
-        {
-          a = loadImage("data/eames.jpg");
-          size(200,200);
-          noStroke();
-          background(255);
-          smooth();
-        }
+      void setup()
+      {
+        a = loadImage("data/eames.jpg");
+        size(200,200);
+        noStroke();
+        background(255);
+        smooth();
+      }
 
-        void draw()
-        { 
-          float pointillize = map(mouseX, 0, width, 2, 18);
-          int x = int(random(a.width));
-          int y = int(random(a.height));
-          color pix = a.get(x, y);
-          fill(pix, 126);
-          ellipse(x, y, pointillize, pointillize);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw()
+      { 
+        float pointillize = map(mouseX, 0, width, 2, 18);
+        int x = int(random(a.width));
+        int y = int(random(a.height));
+        color pix = a.get(x, y);
+        fill(pix, 126);
+        ellipse(x, y, pointillize, pointillize);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

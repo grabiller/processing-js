@@ -10,25 +10,23 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Form</h4>
     <h1>Bezier</h1>
     <p>The first two parameters for the bezier() function specify the first point in the curve and the last two parameters specify the last point. The middle parameters set the control points that define the shape of the curve.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/bezier.html"><b>Original Processing.org Example:</b> Bezier</a><br>
-      <script type="application/processing">
-        size(200, 200); 
-        background(0); 
-        stroke(255);
-        noFill();
-        smooth(); 
+    <p><a href="http://processing.org/learning/basics/bezier.html"><b>Original Processing.org Example:</b> Bezier</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200); 
+      background(0); 
+      stroke(255);
+      noFill();
+      smooth(); 
 
-        for(int i = 0; i < 100; i += 20) {
-          bezier(90-(i/2.0), 20+i, 210, 10, 220, 150, 120-(i/8.0), 150+(i/4.0));
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      for(int i = 0; i < 100; i += 20) {
+        bezier(90-(i/2.0), 20+i, 210, 10, 220, 150, 120-(i/8.0), 150+(i/4.0));
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

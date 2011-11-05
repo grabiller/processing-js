@@ -10,41 +10,39 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Structure</h4>
     <h1>Functions</h1>
     <p>The draw_target() function makes it easy to draw many distinct targets. Each call to draw_target() specifies the position, size, and number of rings for each target.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/functions.html"><b>Original Processing.org Example:</b> Functions</a><br>
-      <script type="application/processing">
-        void setup() 
-        {
-          size(200, 200);
-          background(51);
-          noStroke();
-          smooth();
-          noLoop();
-        }
+    <p><a href="http://processing.org/learning/basics/functions.html"><b>Original Processing.org Example:</b> Functions</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() 
+      {
+        size(200, 200);
+        background(51);
+        noStroke();
+        smooth();
+        noLoop();
+      }
 
-        void draw() 
-        {
-          draw_target(68, 34, 200, 10);
-          draw_target(152, 16, 100, 3);
-          draw_target(100, 144, 80, 5);
-        }
+      void draw() 
+      {
+        draw_target(68, 34, 200, 10);
+        draw_target(152, 16, 100, 3);
+        draw_target(100, 144, 80, 5);
+      }
 
-        void draw_target(int xloc, int yloc, int size, int num) 
-        {
-          float grayvalues = 255/num;
-          float steps = size/num;
-          for(int i=0; i<num; i++) {
-            fill(i*grayvalues);
-            ellipse(xloc, yloc, size-i*steps, size-i*steps);
-          }
+      void draw_target(int xloc, int yloc, int size, int num) 
+      {
+        float grayvalues = 255/num;
+        float steps = size/num;
+        for(int i=0; i<num; i++) {
+          fill(i*grayvalues);
+          ellipse(xloc, yloc, size-i*steps, size-i*steps);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

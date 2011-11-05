@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf=8">
+    <title>Wormhole</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Effects</h4>
+    <h1>Wormhole</h1>
+    <p>Wormhole demo effect by luis2048.</p>
+    <p>An infinate number of sprites drawn to screen. It's basically a flick-book effect; you draw the same sprite in different positions on different bufffer 'screens' and flip between them. When you've drawn on all frames, you loop back to the beginning and repeat.</p>
+    <p><a href="http://processing.org/learning/topics/wormhole.html"><b>Original Processing.org Example:</b> Wormhole</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/wormhole.png","data/texture.gif" */
+      
+      PImage wormImg, wormTexture;
+      int[] reg = new int[15];
+      
+      void setup() {
+        size(356, 200, P2D);
+        noSmooth();
+      
+        // Reference image used to transpose texture 
+        wormImg = loadImage("data/wormhole.png");
+        wormImg.resize(width, height);
+        wormImg.loadPixels();
+      
+        // Texture image array
+        wormTexture = loadImage("data/wtexture.gif");
+        wormTexture.loadPixels();
+      }
+      
+      // Moves the bottom row of pixels to the top and shifting remaining pixels 1 over
+      void shiftup() {
+        for (int k = 0; k < 15; k++) {
+          reg[k] = wormTexture.pixels[k];
+        }
+      
+        for (int k = 15; k < 225; k++) {
+          wormTexture.pixels[k-15] = wormTexture.pixels[k];
+        }
+        for (int k = 0; k < 15; k++) {
+          wormTexture.pixels[k+210] = reg[k];
+        }
+      }
+      
+      // Moves left column of pixels to the right and shifting remaining pixels 1 over
+      void shiftright() {
+        for(int k = 0; k < 15; k++) {
+          reg[k] = wormTexture.pixels[15*k+14];
+          for(int i = 14;i > 0; i--) {
+              wormTexture.pixels[15*k+i] = wormTexture.pixels[15*k+(i-1)];
+          }
+          wormTexture.pixels[15*k] = reg[k];
+        }
+      }
+      
+      void draw() {
+        // Load pixel data array
+        loadPixels();
+      
+        // Loop through all pixels
+        for (int i = 0; i < pixels.length; i++){
+          // Map texture to wormhole in a bit shift blue 
+          pixels[i] = wormTexture.pixels[constrain(wormImg.pixels[i] & 0xFF, 0, 224)];
+        }  
+      
+        updatePixels();
+      
+        shiftright();
+        shiftup();
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
+</html>

@@ -2,66 +2,64 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>OperatorPrecedence</title>
+    <title>Operator Precedence</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
-    <h1>OperatorPrecedence</h1>
+    <h1>Operator Precedence</h1>
     <p>by <a href="http://reas.com">REAS</a>. If you don't explicitly state the order in which an expression is evaluated, they are evaluated based on the operator precedence. For example, in the statement "4 + 28", the 2 will first be multiplied by 8 and then the result will be added to 4. This is because the "*" has a higher precedence than the "+". To avoid ambiguity in reading the program, it is recommended that is statement is written as "4 + (28)".
 The order of evaluation can be controlled through placement of parenthesis in the code. A table of operator precedence follows below.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/operatorprecedence.html"><b>Original Processing.org Example:</b> OperatorPrecedence</a><br>
-      <script type="application/processing">
-        // The highest precedence is at the top of the list and 
-        // the lowest is at the bottom.
-        // Multiplicative: * / %
-        // Additive: + -
-        // Relational: < > <= >=
-        // Equality: == !=
-        // Logical AND: &&
-        // Logical OR: ||
-        // Assignment: = += -= *= /= %=
+    <p><a href="http://processing.org/learning/basics/operatorprecedence.html"><b>Original Processing.org Example:</b> OperatorPrecedence</a></p>
+    <script id='pjs_code' type="application/processing">
+      // The highest precedence is at the top of the list and 
+      // the lowest is at the bottom.
+      // Multiplicative: * / %
+      // Additive: + -
+      // Relational: < > <= >=
+      // Equality: == !=
+      // Logical AND: &&
+      // Logical OR: ||
+      // Assignment: = += -= *= /= %=
 
-        size(200, 200);
-        background(51);
-        noFill();
-        stroke(51);
+      size(200, 200);
+      background(51);
+      noFill();
+      stroke(51);
 
-        stroke(204);
-        for(int i=0; i< width-20; i+= 4) {
-          // The 30 is added to 70 and then evaluated
-          // if it is greater than the current value of "i"
-          // For clarity, write as "if(i > (30 + 70)) {"
-          if(i > 30 + 70) {
-            line(i, 0, i, 50);
-          }
+      stroke(204);
+      for(int i=0; i< width-20; i+= 4) {
+        // The 30 is added to 70 and then evaluated
+        // if it is greater than the current value of "i"
+        // For clarity, write as "if(i > (30 + 70)) {"
+        if(i > 30 + 70) {
+          line(i, 0, i, 50);
         }
+      }
 
-        stroke(255);
-        // The 2 is multiplied by the 8 and the result is added to the 5
-        // For clarity, write as "rect(5 + (2 * 8), 0, 90, 20);"
-        rect(4 + 2 * 8, 52, 90, 48);
-        rect((4 + 2) * 8, 100, 90, 49);
-          
-        stroke(153);
-        for(int i=0; i< width; i+= 2) {
-          // The relational statements are evaluated 
-          // first, and then the logical AND statements and 
-          // finally the logical OR. For clarity, write as:
-          // "if(((i > 10) && (i < 50)) || ((i > 80) && (i < 160))) {"
-          if(i > 20 && i < 50 || i > 100 && i < width-20) {
-            line(i, 151, i, height-1);
-          } 
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      stroke(255);
+      // The 2 is multiplied by the 8 and the result is added to the 5
+      // For clarity, write as "rect(5 + (2 * 8), 0, 90, 20);"
+      rect(4 + 2 * 8, 52, 90, 48);
+      rect((4 + 2) * 8, 100, 90, 49);
+        
+      stroke(153);
+      for(int i=0; i< width; i+= 2) {
+        // The relational statements are evaluated 
+        // first, and then the logical AND statements and 
+        // finally the logical OR. For clarity, write as:
+        // "if(((i > 10) && (i < 50)) || ((i > 80) && (i < 160))) {"
+        if(i > 20 && i < 50 || i > 100 && i < width-20) {
+          line(i, 151, i, height-1);
+        } 
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

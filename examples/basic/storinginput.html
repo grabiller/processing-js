@@ -2,54 +2,52 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>StoringInput</title>
+    <title>Storing Input</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
-    <h1>StoringInput</h1>
+    <h1>Storing Input</h1>
     <p>Move the mouse across the screen to change the position of the circles. The positions of the mouse are recorded into an array and played back every frame. Between each frame, the newest value are added to the end of each array and the oldest value is deleted.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/storinginput.html"><b>Original Processing.org Example:</b> StoringInput</a><br>
-      <script type="application/processing">
-        int num = 60;
-        float mx[] = new float[num];
-        float my[] = new float[num];
+    <p><a href="http://processing.org/learning/basics/storinginput.html"><b>Original Processing.org Example:</b> StoringInput</a></p>
+    <script id='pjs_code' type="application/processing">
+      int num = 60;
+      float mx[] = new float[num];
+      float my[] = new float[num];
 
-        void setup() 
-        {
-          size(200, 200);
-          smooth();
-          noStroke();
-          fill(255, 153); 
-        }
+      void setup() 
+      {
+        size(200, 200);
+        smooth();
+        noStroke();
+        fill(255, 153); 
+      }
 
-        void draw() 
-        {
-          background(51); 
-          
-          // Reads throught the entire array
-          // and shifts the values to the left
-          for(int i=1; i<num; i++) {
-            mx[i-1] = mx[i];
-            my[i-1] = my[i];
-          } 
-          // Add the new values to the end of the array
-          mx[num-1] = mouseX;
-          my[num-1] = mouseY;
-          
-          for(int i=0; i<num; i++) {
-            ellipse(mx[i], my[i], i/2, i/2);
-          }
+      void draw() 
+      {
+        background(51); 
+        
+        // Reads throught the entire array
+        // and shifts the values to the left
+        for(int i=1; i<num; i++) {
+          mx[i-1] = mx[i];
+          my[i-1] = my[i];
+        } 
+        // Add the new values to the end of the array
+        mx[num-1] = mouseX;
+        my[num-1] = mouseY;
+        
+        for(int i=0; i<num; i++) {
+          ellipse(mx[i], my[i], i/2, i/2);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

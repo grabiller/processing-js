@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf=8">
+    <title>Unlimited Sprites</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Effects</h4>
+    <h1>Unlimited Sprites</h1>
+    <p>Unlimited Sprites demo effect by luis2048.</p>
+    <p>An infinate number of sprites drawn to screen. It's basically a flick-book effect; you draw the same sprite in different positions on different bufffer 'screens' and flip between them. When you've drawn on all frames, you loop back to the beginning and repeat.</p>
+    <p><a href="http://processing.org/learning/topics/unlimitedsprites.html"><b>Original Processing.org Example:</b> Unlimited Sprites</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/Aqua-Ball-48x48.png" */
+      
+      PGraphics[] spriteFrames = new PGraphics[6];
+      PImage sprite;
+      
+      float x, y;
+      float xang = 0.0;
+      float yang = 0.0;
+      int surf = 0;
+      
+      void setup() {
+        size(356, 200);
+        noSmooth();
+        background(0);
+        
+        // Create sprite
+        sprite=loadImage("data/Aqua-Ball-48x48.png");
+      
+        // Create blank surfaces to draw on
+        for (int i = 0; i < spriteFrames.length; i++)  {
+          spriteFrames[i] = createGraphics(width, height, JAVA2D);
+        }   
+      }
+      
+      void draw()
+      {
+        background(0);
+        
+        // Get X, Y positions
+        x = (width/2)*sin((radians(xang))*0.95);
+        y = (height/2)*cos((radians(yang))*0.97);
+      
+        // Inc the angle of the sine
+        xang += 1.17;
+        yang += 1.39;
+      
+        // Blit our 'bob' on the 'active' surface
+        spriteFrames[surf].beginDraw();
+        spriteFrames[surf].image(sprite, x+(width/2)-32, y+(height/2)-32);
+        spriteFrames[surf].endDraw();            
+      
+        // Blit the active surface to the screen
+        image(spriteFrames[surf], 0, 0, width, height);
+      
+        // Inc the active surface number
+        surf = (surf+1) % spriteFrames.length;
+      
+        // Display the results
+        //image(spriteEffect, 0, 0, width, height); 
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
+</html>

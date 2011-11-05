@@ -2,40 +2,38 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>Mouse2D</title>
+    <title>Mouse 2D</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
-    <h1>Mouse2D</h1>
+    <h1>Mouse 2D</h1>
     <p>Moving the mouse changes the position and size of each box.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/mouse2d.html"><b>Original Processing.org Example:</b> Mouse2D</a><br>
-      <script type="application/processing">
-        void setup() 
-        {
-          size(200, 200); 
-          noStroke();
-          colorMode(RGB, 255, 255, 255, 100);
-          rectMode(CENTER);
-        }
+    <p><a href="http://processing.org/learning/basics/mouse2d.html"><b>Original Processing.org Example:</b> Mouse2D</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() 
+      {
+        size(200, 200); 
+        noStroke();
+        colorMode(RGB, 255, 255, 255, 100);
+        rectMode(CENTER);
+      }
 
-        void draw() 
-        {   
-          background(51); 
-          fill(255, 80);
-          rect(mouseX, height/2, mouseY/2+10, mouseY/2+10);
-          fill(255, 80);
-          rect(width-mouseX, height/2, ((height-mouseY)/2)+10, ((height-mouseY)/2)+10);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw() 
+      {   
+        background(51); 
+        fill(255, 80);
+        rect(mouseX, height/2, mouseY/2+10, mouseY/2+10);
+        fill(255, 80);
+        rect(width-mouseX, height/2, ((height-mouseY)/2)+10, ((height-mouseY)/2)+10);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

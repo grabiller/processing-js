@@ -11,23 +11,21 @@
     <h1>Displaying</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. - F1LT3R</p>
     <p>Images can be displayed to the screen at their actual size or any other size.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/loaddisplayimage.html"><b>Original Processing.org Example:</b> Displaying</a><br>
-      <script type="application/processing">
-        /* @pjs preload="data/jelly.jpg"; */
+    <p><a href="http://processing.org/learning/basics/loaddisplayimage.html"><b>Original Processing.org Example:</b> Displaying</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/jelly.jpg"; */
 
-        size(200, 200);
-        PImage a; // Declare variable "a" of type PImage
-        a = loadImage("data/jelly.jpg"); // Load the images into the program
-        image(a, 0, 0); // Displays the image from point (0,0) when image data has been loaded
-        image(a, width/2, 0, a.width/2, a.height/2);
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      size(200, 200);
+      PImage a; // Declare variable "a" of type PImage
+      a = loadImage("data/jelly.jpg"); // Load the images into the program
+      image(a, 0, 0); // Displays the image from point (0,0) when image data has been loaded
+      image(a, width/2, 0, a.width/2, a.height/2);
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

@@ -10,44 +10,42 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Color</h4>
     <h1>Relativity</h1>
     <p>Each color is perceived in relation to other colors. The top and bottom bars each contain the same component colors, but a different display order causes individual colors to appear differently.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/relativity.html"><b>Original Processing.org Example:</b> Relativity</a><br>
-      <script type="application/processing">
-        color a, b, c, d, e;
+    <p><a href="http://processing.org/learning/basics/relativity.html"><b>Original Processing.org Example:</b> Relativity</a></p>
+    <script id='pjs_code' type="application/processing">
+      color a, b, c, d, e;
 
-        void setup() {
-          size(200, 200);
-          noStroke();
-          a = color(165, 167, 20);
-          b = color(77, 86, 59);
-          c = color(42, 106, 105);
-          d = color(165, 89, 20);
-          e = color(146, 150, 127);
-          noLoop();
-        }
+      void setup() {
+        size(200, 200);
+        noStroke();
+        a = color(165, 167, 20);
+        b = color(77, 86, 59);
+        c = color(42, 106, 105);
+        d = color(165, 89, 20);
+        e = color(146, 150, 127);
+        noLoop();
+      }
 
-        void draw() {
-          drawBand(a, b, c, d, e, 0, 4);
-          drawBand(c, a, d, b, e, height/2, 4);
-        }
+      void draw() {
+        drawBand(a, b, c, d, e, 0, 4);
+        drawBand(c, a, d, b, e, height/2, 4);
+      }
 
-        void drawBand(color v, color w, color x, color y, color z, int ypos, int barWidth) {
-          int num = 5;
-          color[] colorOrder = { v, w, x, y, z };
-          for(int i = 0; i < width; i += barWidth*num) {
-            for(int j = 0; j < num; j++) {
-              fill(colorOrder[j]);
-              rect(i+j*barWidth, ypos, barWidth, height/2);
-            }
+      void drawBand(color v, color w, color x, color y, color z, int ypos, int barWidth) {
+        int num = 5;
+        color[] colorOrder = { v, w, x, y, z };
+        for(int i = 0; i < width; i += barWidth*num) {
+          for(int j = 0; j < num; j++) {
+            fill(colorOrder[j]);
+            rect(i+j*barWidth, ypos, barWidth, height/2);
           }
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

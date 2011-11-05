@@ -2,38 +2,36 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>PieChart</title>
+    <title>Pie Chart</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Form</h4>
-    <h1>PieChart</h1>
+    <h1>Pie Chart</h1>
     <p>By Ira Greenberg. Uses the arc() function to generate a pie chart from the data stored in an array.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/piechart.html"><b>Original Processing.org Example:</b> PieChart</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        background(100);
-        smooth();
-        noStroke();
+    <p><a href="http://processing.org/learning/basics/piechart.html"><b>Original Processing.org Example:</b> PieChart</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      background(100);
+      smooth();
+      noStroke();
 
-        int diameter = 150;
-        int[] angs = { 30, 10, 45, 35, 60, 38, 75, 67 };
-        float lastAng = 0;
+      int diameter = 150;
+      int[] angs = { 30, 10, 45, 35, 60, 38, 75, 67 };
+      float lastAng = 0;
 
-        for (int i=0; i<angs.length; i++){
-          fill(angs[i] * 3.0);
-          arc(width/2, height/2, diameter, diameter, lastAng, lastAng+radians(angs[i]));
-          lastAng += radians(angs[i]);  
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      for (int i=0; i<angs.length; i++){
+        fill(angs[i] * 3.0);
+        arc(width/2, height/2, diameter, diameter, lastAng, lastAng+radians(angs[i]));
+        lastAng += radians(angs[i]);  
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

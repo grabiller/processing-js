@@ -1,54 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>SaveOneImage</h2>
-
-<p>The save() function allows you to save an image from the 
-display window. In this example, save() is run when a mouse
-button is pressed. The image "line.tif" is saved to the 
-same folder as the sketch's program file.</p>
-
-<p><a href="http://processing.org/learning/topics/saveoneimage.html"><b>Original Processing.org Example:</b> SaveOneImage</a><br>
-<script type="application/processing">
-void setup() 
-{
-  size(100, 100);
-}
-
-void draw() 
-{
-  background(204);
-  line(0, 0, mouseX, height);
-  line(width, 0, 0, mouseY);
-}
-
-void mousePressed() 
-{
-  save("line.tif");
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-void setup() 
-{
-  size(100, 100);
-}
-
-void draw() 
-{
-  background(204);
-  line(0, 0, mouseX, height);
-  line(width, 0, 0, mouseY);
-}
-
-void mousePressed() 
-{
-  save("line.tif");
-}</pre>
-</body>
+  <head>
+    <meta charset="utf=8">
+    <title>Save One Image</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > File IO</h4>
+    <h1>Save One Image</h1>
+    <p>The save() function allows you to save an image from the display window. In this example, save() is run when a mouse button is pressed. The image "line.tif" is saved to the same folder as the sketch's program file.</p>
+    <p><a href="http://processing.org/learning/topics/saveoneimage.html"><b>Original Processing.org Example:</b> SaveOneImage</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() 
+      {
+        size(100, 100);
+      }
+      
+      void draw() 
+      {
+        background(204);
+        line(0, 0, mouseX, height);
+        line(width, 0, 0, mouseY);
+      }
+      
+      void mousePressed() 
+      {
+        save("line.tif");
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

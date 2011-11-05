@@ -2,48 +2,46 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>PointsLines</title>
+    <title>Points Lines</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Form</h4>
-    <h1>PointsLines</h1>
+    <h1>Points Lines</h1>
     <p>Constructing a simple dimensional form with lines and rectangles. Changing the value of the variable 'd' scales the image. The four variables set the positions based on the value of 'd'.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/pointslines.html"><b>Original Processing.org Example:</b> PointsLines</a><br>
-      <script type="application/processing">
-        int d = 40;
-        int p1 = d;
-        int p2 = p1+d;
-        int p3 = p2+d;
-        int p4 = p3+d;
+    <p><a href="http://processing.org/learning/basics/pointslines.html"><b>Original Processing.org Example:</b> PointsLines</a></p>
+    <script id='pjs_code' type="application/processing">
+      int d = 40;
+      int p1 = d;
+      int p2 = p1+d;
+      int p3 = p2+d;
+      int p4 = p3+d;
 
-        size(200, 200);
-        background(0);
+      size(200, 200);
+      background(0);
 
-        // Draw gray box
-        stroke(153);
-        line(p3, p3, p2, p3);
-        line(p2, p3, p2, p2);
-        line(p2, p2, p3, p2);
-        line(p3, p2, p3, p3);
+      // Draw gray box
+      stroke(153);
+      line(p3, p3, p2, p3);
+      line(p2, p3, p2, p2);
+      line(p2, p2, p3, p2);
+      line(p3, p2, p3, p3);
 
-        // Draw white points
-        stroke(255);
-        point(p1, p1);
-        point(p1, p3); 
-        point(p2, p4);
-        point(p3, p1); 
-        point(p4, p2);
-        point(p4, p4);
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      // Draw white points
+      stroke(255);
+      point(p1, p1);
+      point(p1, p3); 
+      point(p2, p4);
+      point(p3, p1); 
+      point(p4, p2);
+      point(p4, p4);
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

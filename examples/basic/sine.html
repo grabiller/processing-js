@@ -10,55 +10,53 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
     <h1>Sine</h1>
     <p>Smoothly scaling size with the sin() function.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/sine.html"><b>Original Processing.org Example:</b> Sine</a><br>
-      <script type="application/processing">
-        float spin = 0.0; 
-        float diameter = 84.0; 
-        float angle;
+    <p><a href="http://processing.org/learning/basics/sine.html"><b>Original Processing.org Example:</b> Sine</a></p>
+    <script id='pjs_code' type="application/processing">
+      float spin = 0.0; 
+      float diameter = 84.0; 
+      float angle;
 
-        float angle_rot; 
-        int rad_points = 90;
+      float angle_rot; 
+      int rad_points = 90;
 
-        void setup() 
-        {
-          size(200, 200);
-          noStroke();
-          smooth();
+      void setup() 
+      {
+        size(200, 200);
+        noStroke();
+        smooth();
+      }
+
+      void draw() 
+      { 
+        background(153);
+        
+        translate(130, 65);
+        
+        fill(255);
+        ellipse(0, 0, 16, 16);
+        
+        angle_rot = 0;
+        fill(51);
+
+        for(int i=0; i<5; i++) {
+          pushMatrix();
+          rotate(angle_rot + -45);
+          ellipse(-116, 0, diameter, diameter);
+          popMatrix();
+          angle_rot += PI*2/5;
         }
 
-        void draw() 
-        { 
-          background(153);
-          
-          translate(130, 65);
-          
-          fill(255);
-          ellipse(0, 0, 16, 16);
-          
-          angle_rot = 0;
-          fill(51);
-
-          for(int i=0; i<5; i++) {
-            pushMatrix();
-            rotate(angle_rot + -45);
-            ellipse(-116, 0, diameter, diameter);
-            popMatrix();
-            angle_rot += PI*2/5;
-          }
-
-          diameter = 34 * sin(angle) + 168;
-          
-          angle += 0.02;
-          if (angle > TWO_PI) { angle = 0; }
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+        diameter = 34 * sin(angle) + 168;
+        
+        angle += 0.02;
+        if (angle > TWO_PI) { angle = 0; }
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

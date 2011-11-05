@@ -2,53 +2,51 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>Noise1D</title>
+    <title>Noise 1D</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
-    <h1>Noise1D</h1>
+    <h1>Noise 1D</h1>
     <p>Using 1D Perlin Noise to assign location.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/noise1d.html"><b>Original Processing.org Example:</b> Noise1D</a><br>
-      <script type="application/processing">
-        float xoff = 0.0;
-        float xincrement = 0.01; 
+    <p><a href="http://processing.org/learning/basics/noise1d.html"><b>Original Processing.org Example:</b> Noise1D</a></p>
+    <script id='pjs_code' type="application/processing">
+      float xoff = 0.0;
+      float xincrement = 0.01; 
 
-        void setup() {
-          size(200,200);
-          background(0);
-          frameRate(30);
-          smooth();
-          noStroke();
-        }
+      void setup() {
+        size(200,200);
+        background(0);
+        frameRate(30);
+        smooth();
+        noStroke();
+      }
 
-        void draw()
-        {
-          // Create an alpha blended background
-          fill(0, 10);
-          rect(0,0,width,height);
-          
-          //float n = random(0,width);  // Try this line instead of noise
-          
-          // Get a noise value based on xoff and scale it according to the window's width
-          float n = noise(xoff)*width;
-          
-          // With each cycle, increment xoff
-          xoff += xincrement;  
-          
-          // Draw the ellipse at the value produced by perlin noise
-          fill(200);
-          ellipse(n,height/2,16,16);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw()
+      {
+        // Create an alpha blended background
+        fill(0, 10);
+        rect(0,0,width,height);
+        
+        //float n = random(0,width);  // Try this line instead of noise
+        
+        // Get a noise value based on xoff and scale it according to the window's width
+        float n = noise(xoff)*width;
+        
+        // With each cycle, increment xoff
+        xoff += xincrement;  
+        
+        // Draw the ellipse at the value produced by perlin noise
+        fill(200);
+        ellipse(n,height/2,16,16);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

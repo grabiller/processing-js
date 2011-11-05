@@ -10,39 +10,37 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Arrays</h4>
     <h1>Array</h1>
     <p>An array is a list of data. Each piece of data in an array is identified by an index number representing its position in the array. Arrays are zero based, which means that the first element in the array is [0], the second element is [1], and so on. In this example, an array named "coswav" is created and filled with the cosine values. This data is displayed three separate ways on the screen.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/array.html"><b>Original Processing.org Example:</b> Array</a><br>
-      <script type="application/processing">
-        size(200, 200);
+    <p><a href="http://processing.org/learning/basics/array.html"><b>Original Processing.org Example:</b> Array</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
 
-        float[] coswave = new float[width];
+      float[] coswave = new float[width];
 
-        for(int i=0; i<width; i++) {
-          float ratio = (float)i/(float)width;
-          coswave[i] = abs( cos(ratio*PI) );
-        }
+      for(int i=0; i<width; i++) {
+        float ratio = (float)i/(float)width;
+        coswave[i] = abs( cos(ratio*PI) );
+      }
 
-        for(int i=0; i<width; i++) {
-          stroke(coswave[i]*255);
-          line(i, 0, i, width/3);
-        }
+      for(int i=0; i<width; i++) {
+        stroke(coswave[i]*255);
+        line(i, 0, i, width/3);
+      }
 
-        for(int i=0; i<width; i++) {
-          stroke(coswave[i]*255/4);
-          line(i, width/3, i, width/3*2);
-        }
+      for(int i=0; i<width; i++) {
+        stroke(coswave[i]*255/4);
+        line(i, width/3, i, width/3*2);
+      }
 
-        for(int i=0; i<width; i++) {
-          stroke(255-coswave[i]*255);
-          line(i, width/3*2, i, height);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      for(int i=0; i<width; i++) {
+        stroke(255-coswave[i]*255);
+        line(i, width/3*2, i, height);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

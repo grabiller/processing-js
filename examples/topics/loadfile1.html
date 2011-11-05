@@ -1,66 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>LoadFile1</h2>
-
-<p>Loads a text file that contains two numbers separated by a tab ('\t').
-A new pair of numbers is loaded each frame and used to draw a point on the screen.</p>
-
-<p><a href="http://processing.org/learning/topics/loadfile1.html"><b>Original Processing.org Example:</b> LoadFile1</a><br>
-<script type="application/processing">
-String[] lines;
-int index = 0;
-
-void setup() {
-  size(200, 200);
-  background(0);
-  stroke(255);
-  frameRate(12);
-  lines = loadStrings("positions.txt");
-}
-
-void draw() {
-  if (index < lines.length) {
-    String[] pieces = split(lines[index], '\t');
-    if (pieces.length == 2) {
-      int x = int(pieces[0]) * 2;
-      int y = int(pieces[1]) * 2;
-      point(x, y);
-    }
-    // Go to the next line for the next run through draw()
-    index = index + 1;
-  }
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"><img src='data/positions.txt' id='positions.txt'/></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-String[] lines;
-int index = 0;
-
-void setup() {
-  size(200, 200);
-  background(0);
-  stroke(255);
-  frameRate(12);
-  lines = loadStrings("positions.txt");
-}
-
-void draw() {
-  if (index &lt; lines.length) {
-    String[] pieces = split(lines[index], '\t');
-    if (pieces.length == 2) {
-      int x = int(pieces[0]) * 2;
-      int y = int(pieces[1]) * 2;
-      point(x, y);
-    }
-    // Go to the next line for the next run through draw()
-    index = index + 1;
-  }
-}</pre>
-</body>
+  <head>
+    <meta charset="utf=8">
+    <title>Load File 1</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > File IO</h4>
+    <h1>Load File 1</h1>
+    <p>Loads a text file that contains two numbers separated by a tab ('\t'). A new pair of numbers is loaded each frame and used to draw a point on the screen.</p>
+    <p><a href="http://processing.org/learning/topics/loadfile1.html"><b>Original Processing.org Example:</b> LoadFile1</a></p>
+    <script id='pjs_code' type="application/processing">
+      String[] lines;
+      int index = 0;
+      
+      void setup() {
+        size(200, 200);
+        background(0);
+        stroke(255);
+        frameRate(12);
+        lines = loadStrings("positions.txt");
+      }
+      
+      void draw() {
+        if (index < lines.length) {
+          String[] pieces = split(lines[index], '\t');
+          if (pieces.length == 2) {
+            int x = int(pieces[0]) * 2;
+            int y = int(pieces[1]) * 2;
+            point(x, y);
+          }
+          // Go to the next line for the next run through draw()
+          index = index + 1;
+        }
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

@@ -10,27 +10,25 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
     <h1>Random</h1>
     <p>Random numbers create the basis of this image. Each time the program is loaded the result is different.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/random.html"><b>Original Processing.org Example:</b> Random</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        smooth();
-        background(0);
-        strokeWeight(10);
+    <p><a href="http://processing.org/learning/basics/random.html"><b>Original Processing.org Example:</b> Random</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      smooth();
+      background(0);
+      strokeWeight(10);
 
-        for(int i = 0; i < width; i++) {
-          float r = random(255);
-          float x = random(0, width);
-          stroke(r, 100);
-          line(i, 0, x, height);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      for(int i = 0; i < width; i++) {
+        float r = random(255);
+        float x = random(0, width);
+        stroke(r, 100);
+        line(i, 0, x, height);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

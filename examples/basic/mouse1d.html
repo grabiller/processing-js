@@ -2,66 +2,64 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>Mouse1D</title>
+    <title>Mouse 1D</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
-    <h1>Mouse1D</h1>
+    <h1>Mouse 1D</h1>
     <p>Move the mouse left and right to shift the balance. The "mouseX" variable is used to control both the size and color of the rectangles.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/mouse1d.html"><b>Original Processing.org Example:</b> Mouse1D</a><br>
-      <script type="application/processing">
-        int gx = 15;
-        int gy = 35;
-        float leftColor = 0.0;
-        float rightColor = 0.0;
+    <p><a href="http://processing.org/learning/basics/mouse1d.html"><b>Original Processing.org Example:</b> Mouse1D</a></p>
+    <script id='pjs_code' type="application/processing">
+      int gx = 15;
+      int gy = 35;
+      float leftColor = 0.0;
+      float rightColor = 0.0;
 
-        void setup() 
-        {
-          size(200, 200);
-          colorMode(RGB, 1.0);
-          noStroke();
+      void setup() 
+      {
+        size(200, 200);
+        colorMode(RGB, 1.0);
+        noStroke();
+      }
+
+      void draw() 
+      {
+        background(0.0);
+        update(mouseX); 
+        fill(0.0, leftColor + 0.4, leftColor + 0.6); 
+        rect(width/4-gx, width/2-gx, gx*2, gx*2); 
+        fill(0.0, rightColor + 0.2, rightColor + 0.4); 
+        rect(width/1.33-gy, width/2-gy, gy*2, gy*2);
+      }
+
+      void update(int x) 
+      {
+        leftColor = -0.002 * x/2 + 0.06;
+        rightColor =  0.002 * x/2 + 0.06;
+        
+        gx = x/2;
+        gy = 100-x/2;
+
+        if (gx < 10) {
+          gx = 10;
+        } else if (gx > 90) {
+          gx = 90;
         }
 
-        void draw() 
-        {
-          background(0.0);
-          update(mouseX); 
-          fill(0.0, leftColor + 0.4, leftColor + 0.6); 
-          rect(width/4-gx, width/2-gx, gx*2, gx*2); 
-          fill(0.0, rightColor + 0.2, rightColor + 0.4); 
-          rect(width/1.33-gy, width/2-gy, gy*2, gy*2);
+        if (gy > 90) {
+          gy = 90;
+        } else if (gy < 10) {
+          gy = 10;
         }
-
-        void update(int x) 
-        {
-          leftColor = -0.002 * x/2 + 0.06;
-          rightColor =  0.002 * x/2 + 0.06;
-          
-          gx = x/2;
-          gy = 100-x/2;
-
-          if (gx < 10) {
-            gx = 10;
-          } else if (gx > 90) {
-            gx = 90;
-          }
-
-          if (gy > 90) {
-            gy = 90;
-          } else if (gy < 10) {
-            gy = 10;
-          }
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

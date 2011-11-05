@@ -1,85 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Follow1</h2>
-
-<p>Based on code from Keith Peters (www.bit-101.com). 
-
-A line segment is pushed and pulled by the cursor.</p>
-
-<p><a href="http://processing.org/learning/topics/follow1.html"><b>Original Processing.org Example:</b> Follow1</a><br>
-<script type="application/processing">
-float x = 100;
-float y = 100;
-float angle1 = 0.0;
-float segLength = 50;
-
-void setup() {
-  size(200, 200);
-  smooth(); 
-  strokeWeight(20.0);
-  stroke(0, 100);
-}
-
-void draw() {
-  background(226);
-  
-  float dx = mouseX - x;
-  float dy = mouseY - y;
-  angle1 = atan2(dy, dx);  
-  x = mouseX - (cos(angle1) * segLength);
-  y = mouseY - (sin(angle1) * segLength);
- 
-  segment(x, y, angle1); 
-  ellipse(x, y, 20, 20);
-}
-
-void segment(float x, float y, float a) {
-  pushMatrix();
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-  popMatrix();
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float x = 100;
-float y = 100;
-float angle1 = 0.0;
-float segLength = 50;
-
-void setup() {
-  size(200, 200);
-  smooth(); 
-  strokeWeight(20.0);
-  stroke(0, 100);
-}
-
-void draw() {
-  background(226);
-  
-  float dx = mouseX - x;
-  float dy = mouseY - y;
-  angle1 = atan2(dy, dx);  
-  x = mouseX - (cos(angle1) * segLength);
-  y = mouseY - (sin(angle1) * segLength);
- 
-  segment(x, y, angle1); 
-  ellipse(x, y, 20, 20);
-}
-
-void segment(float x, float y, float a) {
-  pushMatrix();
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-  popMatrix();
-}</pre>
-</body>
+  <head>
+    <meta charset="utf=8">
+    <title>Follow1</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Interaction</h4>
+    <h1>Follow1</h1>
+    <p>Based on code from Keith Peters (www.bit-101.com). A line segment is pushed and pulled by the cursor.</p>
+    <p><a href="http://processing.org/learning/topics/follow1.html"><b>Original Processing.org Example:</b> Follow1</a></p>
+    <script id='pjs_code' type="application/processing">
+      float x = 100;
+      float y = 100;
+      float angle1 = 0.0;
+      float segLength = 50;
+      
+      void setup() {
+        size(200, 200);
+        smooth(); 
+        strokeWeight(20.0);
+        stroke(0, 100);
+      }
+      
+      void draw() {
+        background(226);
+        
+        float dx = mouseX - x;
+        float dy = mouseY - y;
+        angle1 = atan2(dy, dx);  
+        x = mouseX - (cos(angle1) * segLength);
+        y = mouseY - (sin(angle1) * segLength);
+       
+        segment(x, y, angle1); 
+        ellipse(x, y, 20, 20);
+      }
+      
+      void segment(float x, float y, float a) {
+        pushMatrix();
+        translate(x, y);
+        rotate(a);
+        line(0, 0, segLength, 0);
+        popMatrix();
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

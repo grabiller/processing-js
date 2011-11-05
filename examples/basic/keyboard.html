@@ -10,47 +10,45 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
     <h1>Keyboard</h1>
     <p>Click on the image to give it focus and press the letter keys to create forms in time and space. Each key has a unique identifying number called it's ASCII value. These numbers can be used to position shapes in space.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/keyboard.html"><b>Original Processing.org Example:</b> Keyboard</a><br>
-      <script type="application/processing">
-        int numChars = 26;
-        color[] colors = new color[numChars];
-        int keyIndex;
-        float keyScale;
-        int rectWidth;
+    <p><a href="http://processing.org/learning/basics/keyboard.html"><b>Original Processing.org Example:</b> Keyboard</a></p>
+    <script id='pjs_code' type="application/processing">
+      int numChars = 26;
+      color[] colors = new color[numChars];
+      int keyIndex;
+      float keyScale;
+      int rectWidth;
 
-            
-        void setup()
-        {
-          size(200, 200);
-          noStroke();
-          background(0);
-          keyScale = 200/numChars-1.0;
-          rectWidth = width/4;
-        }
+          
+      void setup()
+      {
+        size(200, 200);
+        noStroke();
+        background(0);
+        keyScale = 200/numChars-1.0;
+        rectWidth = width/4;
+      }
 
-        void draw()
-        { 
-          if(keyPressed) {
-            if(key >= 'A' && key <= 'z') {
-              if(key <= 'Z') {
-                keyIndex = key-'A';
-              } else {
-                keyIndex = key-'a';
-              }
-              fill(millis()%255);
-              float beginRect = rectWidth/2 + keyIndex*keyScale-rectWidth/2;
-              rect(beginRect, 0.0, rectWidth, height);
+      void draw()
+      { 
+        if(keyPressed) {
+          if(key >= 'A' && key <= 'z') {
+            if(key <= 'Z') {
+              keyIndex = key-'A';
+            } else {
+              keyIndex = key-'a';
             }
+            fill(millis()%255);
+            float beginRect = rectWidth/2 + keyIndex*keyScale-rectWidth/2;
+            rect(beginRect, 0.0, rectWidth, height);
           }
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

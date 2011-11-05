@@ -2,90 +2,88 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>ArrayObjects</title>
+    <title>Array Objects</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Arrays</h4>
-    <h1>ArrayObjects</h1>
+    <h1>Array Objects</h1>
     <p>Demonstrates the syntax for creating an array of custom objects.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/arrayobjects.html"><b>Original Processing.org Example:</b> ArrayObjects</a><br>
-      <script type="application/processing">
-        int unit = 40;
-        int num;
-        Module[] mods;
+    <p><a href="http://processing.org/learning/basics/arrayobjects.html"><b>Original Processing.org Example:</b> ArrayObjects</a></p>
+    <script id='pjs_code' type="application/processing">
+      int unit = 40;
+      int num;
+      Module[] mods;
 
-        void setup() 
-        {
-          size(200, 200);
-          background(176);
-          noStroke();
-          
-          num = width/unit * width/unit;
-          mods = new Module[num];
-          
-          for (int i=0; i<height/unit; i++) {
-            for(int j=0; j<height/unit; j++) {
-              int index = i*height/unit + j;
-              mods[index] = new Module(j*unit, i*unit, unit/2, unit/2, random(0.05, 0.8));  
-            }
+      void setup() 
+      {
+        size(200, 200);
+        background(176);
+        noStroke();
+        
+        num = width/unit * width/unit;
+        mods = new Module[num];
+        
+        for (int i=0; i<height/unit; i++) {
+          for(int j=0; j<height/unit; j++) {
+            int index = i*height/unit + j;
+            mods[index] = new Module(j*unit, i*unit, unit/2, unit/2, random(0.05, 0.8));  
           }
         }
+      }
 
-        void draw() 
-        {
-          for(int i=0; i<num; i++) {
-            mods[i].update();
-            mods[i].draw();
+      void draw() 
+      {
+        for(int i=0; i<num; i++) {
+          mods[i].update();
+          mods[i].draw();
+        }
+      }
+
+      class Module {
+        float mx, my;
+        int size = unit;
+        float x, y = 0;
+        int xdir = 1;
+        int ydir = 1;
+        float speed; 
+        
+        // Contructor (required)
+        Module(float imx, float imy, float ix, float iy, float ispeed) {
+          mx = imy;
+          my = imx;
+          x = int(ix);
+          y = int(iy);
+          speed = ispeed;
+        }
+        
+        // Custom method for updating the variables
+        void update() {
+          x = x + (speed * xdir);
+          if (x >= size || x <= 0) {
+            xdir *= -1;
+            x = x + (1 * xdir);
+            y = y + (1 * ydir);
+          }
+          if (y >= size || y <= 0) {
+            ydir *= -1;
+            y = y + (1 * ydir);
           }
         }
-
-        class Module {
-          float mx, my;
-          int size = unit;
-          float x, y = 0;
-          int xdir = 1;
-          int ydir = 1;
-          float speed; 
-          
-          // Contructor (required)
-          Module(float imx, float imy, float ix, float iy, float ispeed) {
-            mx = imy;
-            my = imx;
-            x = int(ix);
-            y = int(iy);
-            speed = ispeed;
-          }
-          
-          // Custom method for updating the variables
-          void update() {
-            x = x + (speed * xdir);
-            if (x >= size || x <= 0) {
-              xdir *= -1;
-              x = x + (1 * xdir);
-              y = y + (1 * ydir);
-            }
-            if (y >= size || y <= 0) {
-              ydir *= -1;
-              y = y + (1 * ydir);
-            }
-          }
-          
-          // Custom method for drawing the object
-          void draw() {
-            stroke(second()*4);
-            point(mx+x-1, my+y-1);
-          }
+        
+        // Custom method for drawing the object
+        void draw() {
+          stroke(second()*4);
+          point(mx+x-1, my+y-1);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

@@ -2,96 +2,94 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>SimpleCurves</title>
+    <title>Simple Curves</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Form</h4>
-    <h1>SimpleCurves</h1>
+    <h1>Simple Curves</h1>
     <p>Simple curves are drawn with simple equations. By using numbers with values between 0 and 1 in the equations, a series of elegant curves are created. The numbers are then scaled to fill the screen.</p>
-    <p> 
-      <a href="http://processing.org/learning/basics/simplecurves.html"><b>Original Processing.org Example:</b> SimpleCurves</a><br>
-      <script type="application/processing">
-        void setup() {
-          size(200, 200);
-          colorMode(RGB, 100);
-          background(0);
-          noFill();
-          noLoop();
-        }
+    <p><a href="http://processing.org/learning/basics/simplecurves.html"><b>Original Processing.org Example:</b> SimpleCurves</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() {
+        size(200, 200);
+        colorMode(RGB, 100);
+        background(0);
+        noFill();
+        noLoop();
+      }
 
-        void draw() {
-          stroke(40);
-          beginShape();
-          for(int i=0; i<width; i++) {
-           vertex(i, singraph((float)i/width)*height);
-          }
-          endShape();
-          
-          stroke(55);
-          beginShape();
-          for(int i=0; i<width; i++) {
-           vertex(i, quad((float)i/width)*height);
-          }
-          endShape();
-          
-          stroke(70);
-          beginShape();
-          for(int i=0; i<width; i++) {
-           vertex(i, quadHump((float)i/width)*height);
-          }
-          endShape();
-          
-          stroke(85);
-          beginShape();
-          for(int i=0; i<width; i++) {
-           vertex(i, hump((float)i/width)*height);
-          }
-          endShape();
-          
-          stroke(100);
-          beginShape();
-          for(int i=0; i<width; i++) {
-           vertex(i, squared((float)i/width)*height);
-          }
-          endShape();
+      void draw() {
+        stroke(40);
+        beginShape();
+        for(int i=0; i<width; i++) {
+         vertex(i, singraph((float)i/width)*height);
         }
+        endShape();
+        
+        stroke(55);
+        beginShape();
+        for(int i=0; i<width; i++) {
+         vertex(i, quad((float)i/width)*height);
+        }
+        endShape();
+        
+        stroke(70);
+        beginShape();
+        for(int i=0; i<width; i++) {
+         vertex(i, quadHump((float)i/width)*height);
+        }
+        endShape();
+        
+        stroke(85);
+        beginShape();
+        for(int i=0; i<width; i++) {
+         vertex(i, hump((float)i/width)*height);
+        }
+        endShape();
+        
+        stroke(100);
+        beginShape();
+        for(int i=0; i<width; i++) {
+         vertex(i, squared((float)i/width)*height);
+        }
+        endShape();
+      }
 
-        float singraph(float sa) {
-          sa = (sa - 0.5) * 1.0; //scale from -1 to 1
-          sa = sin(sa*PI)/2 + 0.5;
-          return sa;
-        }
+      float singraph(float sa) {
+        sa = (sa - 0.5) * 1.0; //scale from -1 to 1
+        sa = sin(sa*PI)/2 + 0.5;
+        return sa;
+      }
 
-        float quad(float sa) {
-          return sa*sa*sa*sa;
-        }
+      float quad(float sa) {
+        return sa*sa*sa*sa;
+      }
 
-        float quadHump(float sa) {
-          sa = (sa - 0.5); //scale from -2 to 2
-          sa = sa*sa*sa*sa * 16;
-          return sa;
-        }
+      float quadHump(float sa) {
+        sa = (sa - 0.5); //scale from -2 to 2
+        sa = sa*sa*sa*sa * 16;
+        return sa;
+      }
 
-        float hump(float sa) {
-          sa = (sa - 0.5) * 2; //scale from -2 to 2
-          sa = sa*sa;
-          if(sa > 1) { sa = 1; }
-          return 1-sa;
-        }
+      float hump(float sa) {
+        sa = (sa - 0.5) * 2; //scale from -2 to 2
+        sa = sa*sa;
+        if(sa > 1) { sa = 1; }
+        return 1-sa;
+      }
 
-        float squared(float sa) {
-          sa = sa*sa;
-          return sa;
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      float squared(float sa) {
+        sa = sa*sa;
+        return sa;
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

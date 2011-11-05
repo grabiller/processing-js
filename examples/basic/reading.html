@@ -11,51 +11,49 @@
     <h1>Reading</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading.</p>
     <p>An image is recreated from its individual component colors. The many colors of the image are created through modulating the red, green, and blue values. This is an exageration of an LCD display.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/reading.html"><b>Original Processing.org Example:</b> Reading</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        noStroke();
-        background(0);
+    <p><a href="http://processing.org/learning/basics/reading.html"><b>Original Processing.org Example:</b> Reading</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      noStroke();
+      background(0);
 
-        // Load an image from the data directory
-        PImage c;
-        c = loadImage("data/cait.jpg", null, function(){
+      // Load an image from the data directory
+      PImage c;
+      c = loadImage("data/cait.jpg", null, function(){
 
-          int xoff = 0;
-          int yoff = 0;
-          int p = 2;
-          int pix = p*3;
+        int xoff = 0;
+        int yoff = 0;
+        int p = 2;
+        int pix = p*3;
 
 
-          for(int i = 0; i < c.width*c.height; i += 1) 
-          {  
-            int here = c.pixels[i];
-            
-            fill(red(here), 0, 0);
-            rect(xoff, yoff, p, pix);
-            
-            fill(0, green(here), 0);
-            rect(xoff+p, yoff, p, pix);
-            
-            fill(0, 0, blue(here));
-            rect(xoff+p*2, yoff, p, pix);
-            
-            xoff+=pix;
-            if(xoff >= width-pix) {
-              xoff = 0;
-              yoff += pix;
-            }
+        for(int i = 0; i < c.width*c.height; i += 1) 
+        {  
+          int here = c.pixels[i];
+          
+          fill(red(here), 0, 0);
+          rect(xoff, yoff, p, pix);
+          
+          fill(0, green(here), 0);
+          rect(xoff+p, yoff, p, pix);
+          
+          fill(0, 0, blue(here));
+          rect(xoff+p*2, yoff, p, pix);
+          
+          xoff+=pix;
+          if(xoff >= width-pix) {
+            xoff = 0;
+            yoff += pix;
           }
+        }
 
-        });
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      });
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

@@ -10,46 +10,44 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Transform</h4>
     <h1>Arm</h1>
     <p>The angle of each segment is controlled with the mouseX and mouseY position. The transformations applied to the first segment are also applied to the second segment because they are inside the same pushMatrix() and popMatrix() group.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/arm.html"><b>Original Processing.org Example:</b> Arm</a><br>
-      <script type="application/processing">
-        float x = 50;
-        float y = 100;
-        float angle1 = 0.0;
-        float angle2 = 0.0;
-        float segLength = 50;
+    <p><a href="http://processing.org/learning/basics/arm.html"><b>Original Processing.org Example:</b> Arm</a></p>
+    <script id='pjs_code' type="application/processing">
+      float x = 50;
+      float y = 100;
+      float angle1 = 0.0;
+      float angle2 = 0.0;
+      float segLength = 50;
 
-        void setup() {
-          size(200, 200);
-          smooth(); 
-          strokeWeight(20.0);
-          stroke(0, 100);
-        }
+      void setup() {
+        size(200, 200);
+        smooth(); 
+        strokeWeight(20.0);
+        stroke(0, 100);
+      }
 
-        void draw() {
-          background(226);
-          
-          angle1 = (mouseX/float(width) - 0.5) * -PI;
-          angle2 = (mouseY/float(height) - 0.5) * PI;
-          
-          pushMatrix();
-          segment(x, y, angle1); 
-          segment(segLength, 0, angle2);
-          popMatrix();
-        }
+      void draw() {
+        background(226);
+        
+        angle1 = (mouseX/float(width) - 0.5) * -PI;
+        angle2 = (mouseY/float(height) - 0.5) * PI;
+        
+        pushMatrix();
+        segment(x, y, angle1); 
+        segment(segLength, 0, angle2);
+        popMatrix();
+      }
 
-        void segment(float x, float y, float a) {
-          translate(x, y);
-          rotate(a);
-          line(0, 0, segLength, 0);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void segment(float x, float y, float a) {
+        translate(x, y);
+        rotate(a);
+        line(0, 0, segLength, 0);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

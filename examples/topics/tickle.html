@@ -1,70 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Tickle</h2>
-
-<p>The word "tickle" jitters when the cursor hovers over.
-Sometimes, it can be tickled off the screen.</p>
-
-<p><a href="http://processing.org/learning/topics/tickle.html"><b>Original Processing.org Example:</b> Tickle</a><br>
-<script type="application/processing">
-PFont font;
-float x = 33; // X-coordinate of text
-float y = 60; // Y-coordinate of text
-
-void setup() 
-{
-  size(200, 200);
-  font = loadFont("AmericanTypewriter-24.vlw");
-  textFont(font);
-  noStroke();
-}
-
-void draw() 
-{
-  fill(204, 120);
-  rect(0, 0, width, height);
-  fill(0);
-  // If the cursor is over the text, change the position
-  if ((mouseX >= x) && (mouseX <= x+55) &&
-    (mouseY >= y-24) && (mouseY <= y)) {
-    x += random(-5, 5);
-    y += random(-5, 5);
-  }
-  text("tickle", x, y);
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-PFont font;
-float x = 33; // X-coordinate of text
-float y = 60; // Y-coordinate of text
-
-void setup() 
-{
-  size(200, 200);
-  font = loadFont("AmericanTypewriter-24.vlw");
-  textFont(font);
-  noStroke();
-}
-
-void draw() 
-{
-  fill(204, 120);
-  rect(0, 0, width, height);
-  fill(0);
-  // If the cursor is over the text, change the position
-  if ((mouseX &gt;= x) && (mouseX &lt;= x+55) &&
-    (mouseY &gt;= y-24) && (mouseY &lt;= y)) {
-    x += random(-5, 5);
-    y += random(-5, 5);
-  }
-  text("tickle", x, y);
-}</pre>
-</body>
+  <head>
+    <meta charset="utf=8">
+    <title>Tickle</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Interaction</h4>
+    <h1>Tickle</h1>
+    <p>The word "tickle" jitters when the cursor hovers over. Sometimes, it can be tickled off the screen.</p>
+    <p><a href="http://processing.org/learning/topics/tickle.html"><b>Original Processing.org Example:</b> Tickle</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs font="data/AmericanTypewriterMediumBT.ttf"; */
+      
+      String message = "tickle";
+      float x, y; // X and Y coordinates of text
+      float hr, vr;  // horizontal and vertical radius of the text
+      PFont font;
+      
+      void setup() {
+        size(200, 200);
+        font = loadFont("data/AmericanTypewriterMediumBT.ttf");
+        textFont(font,24);
+        textAlign(CENTER, CENTER);
+        hr = textWidth(message) / 2;
+        vr = (textAscent() + textDescent()) / 2;
+        noStroke();
+        x = width / 2;
+        y = height / 2;
+      }
+      
+      void draw() {
+        // instead of clearing the background, fade it by drawing
+        // a semi-transparent rectangle on top
+        fill(204, 120);
+        rect(0, 0, width, height);
+        fill(0);
+        // If the cursor is over the text, change the position
+        if (abs(mouseX - x) < hr &&
+            abs(mouseY - y) < vr) {
+          x += random(-5, 5);
+          y += random(-5, 5);
+        }
+        text("tickle", x, y);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

@@ -11,37 +11,35 @@
     <h1>Transparency</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. <sup>-F1LT3R</sup></p> 
     <p>Move the pointer left and right across the image to change its position. This program overlays one image over another by modifying the alpha value of the image with the tint() function.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/transparency.html"><b>Original Processing.org Example:</b> Transparency</a><br>
-      <script type="application/processing">
-        /* @pjs preload="data/construct.jpg,data/wash.jpg"; */
+    <p><a href="http://processing.org/learning/basics/transparency.html"><b>Original Processing.org Example:</b> Transparency</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/construct.jpg,data/wash.jpg"; */
 
-        PImage a, b;
-        float offset;
+      PImage a, b;
+      float offset;
 
-        void setup() 
-        {
-          size(200, 200);
-          a = loadImage("data/construct.jpg");  // Load an image into the program 
-          b = loadImage("data/wash.jpg");   // Load an image into the program 
-          frameRate(60);
-        }
+      void setup() 
+      {
+        size(200, 200);
+        a = loadImage("data/construct.jpg");  // Load an image into the program 
+        b = loadImage("data/wash.jpg");   // Load an image into the program 
+        frameRate(60);
+      }
 
-        void draw() 
-        { 
-          image(a, 0, 0);
-          float offsetTarget = map(mouseX, 0, width, -b.width/2 - width/2, 0);
-          offset += (offsetTarget-offset)*0.05; 
-          tint(255, 153);
-          image(b, offset, 20);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw() 
+      { 
+        image(a, 0, 0);
+        float offsetTarget = map(mouseX, 0, width, -b.width/2 - width/2, 0);
+        offset += (offsetTarget-offset)*0.05; 
+        tint(255, 153);
+        image(b, offset, 20);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

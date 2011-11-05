@@ -2,51 +2,49 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>WaveGradient</title>
+    <title>Wave Gradient</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Color</h4>
-    <h1>WaveGradient</h1>
+    <h1>Wave Gradient</h1>
     <p>by Ira Greenberg. Generate a gradient along a sin() wave.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/wavegradient.html"><b>Original Processing.org Example:</b> WaveGradient</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        background(200,200,200);
-        float angle = 0;
-        float px = 0, py = 0;
-        float amplitude = 30;
-        float frequency = 0;
-        float fillGap = 2.5;
-        color c;
+    <p><a href="http://processing.org/learning/basics/wavegradient.html"><b>Original Processing.org Example:</b> WaveGradient</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      background(200,200,200);
+      float angle = 0;
+      float px = 0, py = 0;
+      float amplitude = 30;
+      float frequency = 0;
+      float fillGap = 2.5;
+      color c;
 
-        for (int i =- 75; i < height+75; i++){
-          // reset angle to 0, so waves stack properly
-          angle = 0;
-          // increasing frequency causes more gaps
-          frequency+=.006;
-          for (float j=0; j<width+75; j++){
-            py = i+sin(radians(angle))*amplitude;
-            angle+=frequency;
-            c =  color(abs(py-i)*255/amplitude, 255-abs(py-i)*255/amplitude, j*(255.0/(width+50)));
-            // hack to fill gaps. Raise value of fillGap
-            // if you increase frequency
-            for (int filler = 0; filler<fillGap; filler++){
-              set(int(j-filler), int(py)-filler, c);
-              set(int(j), int(py), c);
-              set(int(j+filler), int(py)+filler, c);
-            }
+      for (int i =- 75; i < height+75; i++){
+        // reset angle to 0, so waves stack properly
+        angle = 0;
+        // increasing frequency causes more gaps
+        frequency+=.006;
+        for (float j=0; j<width+75; j++){
+          py = i+sin(radians(angle))*amplitude;
+          angle+=frequency;
+          c =  color(abs(py-i)*255/amplitude, 255-abs(py-i)*255/amplitude, j*(255.0/(width+50)));
+          // hack to fill gaps. Raise value of fillGap
+          // if you increase frequency
+          for (int filler = 0; filler<fillGap; filler++){
+            set(int(j-filler), int(py)-filler, c);
+            set(int(j), int(py), c);
+            set(int(j+filler), int(py)+filler, c);
           }
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

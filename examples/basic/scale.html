@@ -10,44 +10,42 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Transform</h4>
     <h1>Scale</h1>
     <p>by Denis Grutze. Paramenters for the scale() function are values specified as decimal percentages. For example, the method call scale(2.0) will increase the dimension of the shape by 200 percent. Objects always scale from the origin.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/scale.html"><b>Original Processing.org Example:</b> Scale</a><br>
-      <script type="application/processing">
-        float a = 0.0;
-        float s = 0.0;
+    <p><a href="http://processing.org/learning/basics/scale.html"><b>Original Processing.org Example:</b> Scale</a></p>
+    <script id='pjs_code' type="application/processing">
+      float a = 0.0;
+      float s = 0.0;
 
-        void setup()
-        {
-          size(200,200);
-          noStroke();
-          rectMode(CENTER);
-          frameRate(30);
-        }
+      void setup()
+      {
+        size(200,200);
+        noStroke();
+        rectMode(CENTER);
+        frameRate(30);
+      }
 
-        void draw()
-        {
-          background(102);
-          
-          a = a + 0.04;
-          s = cos(a)*2;
-          
-          translate(width/2, height/2);
-          scale(s); 
-          fill(51);
-          rect(0, 0, 50, 50); 
-          
-          translate(75, 0);
-          fill(255);
-          scale(s);
-          rect(0, 0, 50, 50);       
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw()
+      {
+        background(102);
+        
+        a = a + 0.04;
+        s = cos(a)*2;
+        
+        translate(width/2, height/2);
+        scale(s); 
+        fill(51);
+        rect(0, 0, 50, 50); 
+        
+        translate(75, 0);
+        fill(255);
+        scale(s);
+        rect(0, 0, 50, 50);       
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

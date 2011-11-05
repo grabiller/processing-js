@@ -11,35 +11,33 @@
     <h1>Alphamask</h1>
     <p>This code was updated from the Java source to work with Processing.js asynchronous image loading. Not sure image masks were ever implemented in Processing.js.<sup>-F1LT3R</sup></p> 
     <p>Loads a "mask" for an image to specify the transparency in different parts of the image. The two images are blended together using the mask() method of PImage. Created 29 April 2003.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/alphamask.html"><b>Original Processing.org Example:</b> Alphamask</a><br>
-      <script type="application/processing">
-        /* @pjs preload="data/test.jpg,data/mask.jpg"; */
+    <p><a href="http://processing.org/learning/basics/alphamask.html"><b>Original Processing.org Example:</b> Alphamask</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/test.jpg,data/mask.jpg"; */
 
-        PImage img;
-        PImage maskImg;
+      PImage img;
+      PImage maskImg;
 
-        void setup() 
-        {
-          size(200,200);
-          img = loadImage("data/test.jpg");
-          maskImg = loadImage("data/mask.jpg");
-          img.mask(maskImg);
-        }
+      void setup() 
+      {
+        size(200,200);
+        img = loadImage("data/test.jpg");
+        maskImg = loadImage("data/mask.jpg");
+        img.mask(maskImg);
+      }
 
-        void draw() 
-        {
-          background((mouseX+mouseY)/1.5);
-          image(img, 50, 50);
-          image(img, mouseX-50, mouseY-50);
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      void draw() 
+      {
+        background((mouseX+mouseY)/1.5);
+        image(img, 50, 50);
+        image(img, mouseX-50, mouseY-50);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

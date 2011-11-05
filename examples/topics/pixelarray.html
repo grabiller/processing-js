@@ -1,130 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>PixelArray</h2>
+  <head>
+    <meta charset="utf=8">
+    <title>Pixel Array</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Image Processing</h4>
+    <h1>Pixel Array</h1>
+    <p>This code was updated from the Java source to work with Processing.js asynchronous image loading.</p>
+    <p>Click and drag the mouse up and down to control the signal and press and hold any key to see the current pixel being read. This program sequentially reads the color of every pixel of an image and displays this color to fill the window.</p>
+    <p><a href="http://processing.org/learning/topics/pixelarray.html"><b>Original Processing.org Example:</b> PixelArray</a></p>
+    <script id='pjs_code' type="application/processing">
+      /* @pjs preload="data/ystone08.jpg" */
 
-<p>This code was updated from the Java source to work with Processing.js asynchronous image loading.</p>
-
-<p>Click and drag the mouse up and down to control the signal and 
-press and hold any key to see the current pixel being read. 
-This program sequentially reads the color of every pixel of an image
-and displays this color to fill the window.</p>
-
-<p><a href="http://processing.org/learning/topics/pixelarray.html"><b>Original Processing.org Example:</b> PixelArray</a><br>
-<script type="application/processing">
-PImage a;
-int[] aPixels;
-int direction = 1;
-boolean onetime = true;
-float signal;
-
-void setup() 
-{
-  size(200, 200);
-  aPixels = new int[width*height];
-  noFill();
-  stroke(255);
-  frameRate(30);
-  a = loadImage("data/ystone08.jpg", null, function(){
-    for(int i=0; i<width*height; i++) {
-      aPixels[i] = a.pixels[i];
-    }
-  });  
-}
-
-void draw() 
-{
-  if (signal > width*height-1 || signal < 0) { 
-    direction = direction * -1; 
-  }
-
-  if(mousePressed) {
-    if(mouseY > height-1) { mouseY = height-1; }
-    if(mouseY < 0) { mouseY = 0; }
-    signal = mouseY*width+mouseX;
-  } else {
-    signal += (0.33*direction);  
-  }
-  
-  if(keyPressed) {
-    image(a, 0, 0);
-    /*
-    loadPixels();
-    for (int i=0; i<width*height; i++) { 
-      pixels[i] = aPixels[i];  
-    }
-    updatePixels();
-    */
-    rect(signal%width-5, int(signal/width)-5, 10, 10);
-    point(signal%width, int(signal/width));
-  } else {
-    background( aPixels[int(signal)] );
-    /*
-    loadPixels();
-    for (int i=0; i<width*height; i++) { 
-      pixels[i] = aPixels[int(signal)];
-    }
-    updatePixels();
-    */
-  }
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"><img src='data/ystone08.jpg' id='ystone08.jpg'/></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-PImage a;
-int[] aPixels;
-int direction = 1;
-boolean onetime = true;
-float signal;
-
-void setup() 
-{
-  size(200, 200);
-  aPixels = new int[width*height];
-  noFill();
-  stroke(255);
-  frameRate(30);
-  a = loadImage("data/ystone08.jpg", null, function(){
-    for(int i=0; i<width*height; i++) {
-      aPixels[i] = a.pixels[i];
-    }
-  });
-}
-
-void draw() 
-{
-  if (signal &gt; width*height-1 || signal &lt; 0) { 
-    direction = direction * -1; 
-  }
-
-  if(mousePressed) {
-    if(mouseY &gt; height-1) { mouseY = height-1; }
-    if(mouseY &lt; 0) { mouseY = 0; }
-    signal = mouseY*width+mouseX;
-  } else {
-    signal += (0.33*direction);  
-  }
-  
-  if(keyPressed) {
-    loadPixels();
-    for (int i=0; i&lt;width*height; i++) { 
-      pixels[i] = aPixels[i];  
-    }
-    updatePixels();
-    rect(signal%width-5, int(signal/width)-5, 10, 10);
-    point(signal%width, int(signal/width));
-  } else {
-    loadPixels();
-    for (int i=0; i&lt;width*height; i++) { 
-      pixels[i] = aPixels[int(signal)];
-    }
-    updatePixels();
-  }
-}</pre>
-</body>
+      PImage img;
+      int direction = 1;
+      float signal;
+      
+      void setup() {
+        size(200, 200);
+        noFill();
+        stroke(255);
+        frameRate(30);
+        img = loadImage("data/ystone08.jpg");
+      }
+      
+      void draw() {
+        if (signal > img.width*img.height-1 || signal < 0) { 
+          direction = direction * -1; 
+        }
+      
+        if (mousePressed) {
+          int mx = constrain(mouseX, 0, img.width-1);
+          int my = constrain(mouseY, 0, img.height-1);
+          signal = my*img.width + mx;
+        } else {
+          signal += 0.33*direction;
+        }
+      
+        int sx = int(signal) % img.width;
+        int sy = int(signal) / img.width;
+      
+        if (keyPressed) {
+          set(0, 0, img);  // fast way to draw an image
+          point(sx, sy);
+          rect(sx - 5, sy - 5, 10, 10);
+        } else {
+          color c = img.get(sx, sy);
+          background(c);
+        }
+      }
+   </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

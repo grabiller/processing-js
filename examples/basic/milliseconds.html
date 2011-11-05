@@ -10,33 +10,31 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
     <h1>Milliseconds</h1>
     <p>A millisecond is 1/1000 of a second. Processing keeps track of the number of milliseconds a program has run. By modifying this number with the modulo(%) operator, different patterns in time are created.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/milliseconds.html"><b>Original Processing.org Example:</b> Milliseconds</a><br>
-      <script type="application/processing">
-        float scale;
+    <p><a href="http://processing.org/learning/basics/milliseconds.html"><b>Original Processing.org Example:</b> Milliseconds</a></p>
+    <script id='pjs_code' type="application/processing">
+      float scale;
 
-        void setup()
-        {
-          size(200, 200);
-          noStroke();
-          scale = width/10;
-        }
+      void setup()
+      {
+        size(200, 200);
+        noStroke();
+        scale = width/10;
+      }
 
-        void draw()
-        { 
-          for(int i=0; i<scale; i++) {
-            colorMode(RGB, (i+1) * scale * 10);
-            fill(millis()%((i+1) * scale * 10) );
-            rect(i*scale, 0, scale, height);
-          }
+      void draw()
+      { 
+        for(int i=0; i<scale; i++) {
+          colorMode(RGB, (i+1) * scale * 10);
+          fill(millis()%((i+1) * scale * 10) );
+          rect(i*scale, 0, scale, height);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

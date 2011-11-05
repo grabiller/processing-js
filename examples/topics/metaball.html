@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf=8">
+    <title>Metaball</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Effects</h4>
+    <h1>Metaball</h1>
+    <p>Metaball demo effect by luis2048.</p>
+    <p>Organic-looking n-dimensional objects. The technique for rendering metaballs was invented by Jim Blinn in the early 1980s. Each metaball is defined as a function in n-dimensions.</p>
+    <p><a href="http://processing.org/learning/topics/metaball.html"><b>Original Processing.org Example:</b> Metaball</a></p>
+    <script id='pjs_code' type="application/processing">
+      int numBlobs = 3;
+      
+      int[] blogPx = { 0, 90, 90 };
+      int[] blogPy = { 0, 120, 45 };
+      
+      // Movement vector for each blob
+      int[] blogDx = { 1, 1, 1 };
+      int[] blogDy = { 1, 1, 1 };
+      
+      PGraphics pg;
+      int[][] vy,vx; 
+      
+      void setup() {
+        size(356, 200);
+        pg = createGraphics(160, 90, P2D);    
+        vy = new int[numBlobs][pg.height];
+        vx = new int[numBlobs][pg.width];
+      }
+      
+      void draw() {
+        for (int i=0; i<numBlobs; ++i) {
+          blogPx[i]+=blogDx[i];
+          blogPy[i]+=blogDy[i];
+      
+          // bounce across screen
+          if (blogPx[i] < 0) {
+            blogDx[i] = 1;
+          }
+          if (blogPx[i] > pg.width) {
+            blogDx[i] = -1;
+          }
+          if (blogPy[i] < 0) {
+            blogDy[i] = 1;
+          }
+          if (blogPy[i] > pg.height) {
+            blogDy[i]=-1;
+          }
+      
+          for (int x = 0; x < pg.width; x++) {
+            vx[i][x] = int(sq(blogPx[i]-x));
+          }
+      
+          for (int y = 0; y < pg.height; y++) {
+            vy[i][y] = int(sq(blogPy[i]-y)); 
+          }
+        }
+      
+        // Output into a buffered image for reuse
+        pg.beginDraw();
+        pg.loadPixels();
+        for (int y = 0; y < pg.height; y++) {
+          for (int x = 0; x < pg.width; x++) {
+            int m = 1;
+            for (int i = 0; i < numBlobs; i++) {
+              // Increase this number to make your blobs bigger
+              m += 60000/(vy[i][y] + vx[i][x]+1);
+            }
+            pg.pixels[x+y*pg.width] = color(0, m+x, (x+m+y)/2);
+          }
+        }
+        pg.updatePixels();
+        pg.endDraw();
+      
+        // Display the results
+        image(pg, 0, 0, width, height); 
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
+</html>

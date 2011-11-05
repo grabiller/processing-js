@@ -1,100 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script src="../../processing.js"></script>
-<link rel="stylesheet" href="../style.css"/></head>
-<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
-<h2>Reach1</h2>
-
-<p>Based on code from Keith Peters (www.bit-101.com)
-
-The arm follows the position of the mouse by
-calculating the angles with atan2().</p>
-
-<p><a href="http://processing.org/learning/topics/reach1.html"><b>Original Processing.org Example:</b> Reach1</a><br>
-<script type="application/processing">
-float x = 100;
-float y = 100;
-float x2 = 100;
-float y2 = 100;
-float segLength = 30;
-
-void setup() {
-  size(200, 200);
-  smooth(); 
-  strokeWeight(20.0);
-  stroke(0, 100);
-}
-
-void draw() {
-  background(226);
-  
-  float dx = mouseX - x;
-  float dy = mouseY - y;
-  float angle1 = atan2(dy, dx);  
-  
-  float tx = mouseX - cos(angle1) * segLength;
-  float ty = mouseY - sin(angle1) * segLength;
-  dx = tx - x2;
-  dy = ty - y2;
-  float angle2 = atan2(dy, dx);  
-  x = x2 + cos(angle2) * segLength;
-  y = y2 + sin(angle2) * segLength;
-  
-  segment(x, y, angle1); 
-  segment(x2, y2, angle2); 
-}
-
-void segment(float x, float y, float a) {
-  pushMatrix();
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-  popMatrix();
-}
-</script><canvas width="200" height="200"></canvas></p>
-<div style="height:0px;width:0px;overflow:hidden;"></div>
-
-<pre><b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
-// unless otherwise stated.</b>
-float x = 100;
-float y = 100;
-float x2 = 100;
-float y2 = 100;
-float segLength = 30;
-
-void setup() {
-  size(200, 200);
-  smooth(); 
-  strokeWeight(20.0);
-  stroke(0, 100);
-}
-
-void draw() {
-  background(226);
-  
-  float dx = mouseX - x;
-  float dy = mouseY - y;
-  float angle1 = atan2(dy, dx);  
-  
-  float tx = mouseX - cos(angle1) * segLength;
-  float ty = mouseY - sin(angle1) * segLength;
-  dx = tx - x2;
-  dy = ty - y2;
-  float angle2 = atan2(dy, dx);  
-  x = x2 + cos(angle2) * segLength;
-  y = y2 + sin(angle2) * segLength;
-  
-  segment(x, y, angle1); 
-  segment(x2, y2, angle2); 
-}
-
-void segment(float x, float y, float a) {
-  pushMatrix();
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-  popMatrix();
-}</pre>
-</body>
+  <head>
+    <meta charset="utf=8">
+    <title>Reach1</title>
+    <script type="text/javascript" src="../../processing.js"></script>
+    <link type="text/css" rel="stylesheet" href="../style.css"/>
+  </head>
+  <body>
+    <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Topic Demos</a> > Interaction</h4>
+    <h1>Reach1</h1>
+    <p>Based on code from Keith Peters (www.bit-101.com). The arm follows the position of the mouse by calculating the angles with atan2().</p>
+    <p><a href="http://processing.org/learning/topics/reach1.html"><b>Original Processing.org Example:</b> Reach1</a></p>
+    <script id='pjs_code' type="application/processing">
+      float x = 100;
+      float y = 100;
+      float x2 = 100;
+      float y2 = 100;
+      float segLength = 30;
+      
+      void setup() {
+        size(200, 200);
+        smooth(); 
+        strokeWeight(20.0);
+        stroke(0, 100);
+      }
+      
+      void draw() {
+        background(226);
+        
+        float dx = mouseX - x;
+        float dy = mouseY - y;
+        float angle1 = atan2(dy, dx);  
+        
+        float tx = mouseX - cos(angle1) * segLength;
+        float ty = mouseY - sin(angle1) * segLength;
+        dx = tx - x2;
+        dy = ty - y2;
+        float angle2 = atan2(dy, dx);  
+        x = x2 + cos(angle2) * segLength;
+        y = y2 + sin(angle2) * segLength;
+        
+        segment(x, y, angle1); 
+        segment(x2, y2, angle2); 
+      }
+      
+      void segment(float x, float y, float a) {
+        pushMatrix();
+        translate(x, y);
+        rotate(a);
+        line(0, 0, segLength, 0);
+        popMatrix();
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
+    <script type="text/javascript">
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
+    </script>
+  </body>
 </html>

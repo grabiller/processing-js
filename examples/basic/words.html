@@ -10,39 +10,37 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Typography</h4>
     <h1>Words</h1>
     <p>The text() function is used for writing words to the screen.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/words.html"><b>Original Processing.org Example:</b> Words</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        background(102);
+    <p><a href="http://processing.org/learning/basics/words.html"><b>Original Processing.org Example:</b> Words</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      background(102);
 
-        // Load the font. Fonts are located within the 
-        // main Processing directory/folder and they
-        // must be placed within the data directory
-        // of your sketch for them to load
-        PFont fontA = loadFont("Arial");
+      // Load the font. Fonts are located within the 
+      // main Processing directory/folder and they
+      // must be placed within the data directory
+      // of your sketch for them to load
+      PFont fontA = loadFont("Arial");
 
-        // Set the font and its size (in units of pixels)
-        textFont(fontA, 32);
+      // Set the font and its size (in units of pixels)
+      textFont(fontA, 32);
 
-        int x = 30;
+      int x = 30;
 
-        // Use fill() to change the value or color of the text
-        fill(0);
-        text("ichi", x, 60);
-        fill(51);
-        text("ni", x, 95);
-        fill(204);
-        text("san", x, 130);
-        fill(255);
-        text("shi", x, 165);
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      // Use fill() to change the value or color of the text
+      fill(0);
+      text("ichi", x, 60);
+      fill(51);
+      text("ni", x, 95);
+      fill(204);
+      text("san", x, 130);
+      fill(255);
+      text("shi", x, 165);
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

@@ -2,41 +2,39 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>EmbeddedIteration</title>
+    <title>Embedded Iteration</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Control</h4>
-    <h1>EmbeddedIteration</h1>
+    <h1>Embedded Iteration</h1>
     <p>Embedding "for" structures allows repetition in two dimensions.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/embeddediteration.html"><b>Original Processing.org Example:</b> EmbeddedIteration</a><br>
-      <script type="application/processing">
-        float box_size = 11; 
-        float box_space = 12; 
-        int margin = 7; 
-         
-        size(200, 200); 
-        background(0); 
-        noStroke(); 
-         
-        // Draw gray boxes 
-         
-        for(int i = margin; i < width-margin; i += box_space) { 
-          for(int j = margin; j < height-margin; j += box_space) { 
-            fill(255 - box_size*10); 
-            rect(j, i, box_size, box_size); 
-          } 
-          box_size = box_size - 0.6; 
-        }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+    <p><a href="http://processing.org/learning/basics/embeddediteration.html"><b>Original Processing.org Example:</b> EmbeddedIteration</a></p>
+    <script id='pjs_code' type="application/processing">
+      float box_size = 11; 
+      float box_space = 12; 
+      int margin = 7; 
+       
+      size(200, 200); 
+      background(0); 
+      noStroke(); 
+       
+      // Draw gray boxes 
+       
+      for(int i = margin; i < width-margin; i += box_space) { 
+        for(int j = margin; j < height-margin; j += box_space) { 
+          fill(255 - box_size*10); 
+          rect(j, i, box_size, box_size); 
+        } 
+        box_size = box_size - 0.6; 
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

@@ -10,39 +10,37 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Color</h4>
     <h1>Brightness</h1>
     <p>by Rusty Robison. Brightness is the relative lightness or darkness of a color. Move the cursor vertically over each bar to alter its brightness.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/brightness.html"><b>Original Processing.org Example:</b> Brightness</a><br>
-      <script type="application/processing">
-        int barWidth = 5;
-        int[] brightness;
+    <p><a href="http://processing.org/learning/basics/brightness.html"><b>Original Processing.org Example:</b> Brightness</a></p>
+    <script id='pjs_code' type="application/processing">
+      int barWidth = 5;
+      int[] brightness;
 
-        void setup() 
-        {
-          size(200, 200);
-          colorMode(HSB, 360, height, height);  
-          brightness = new int[width/barWidth];
-        }
+      void setup() 
+      {
+        size(200, 200);
+        colorMode(HSB, 360, height, height);  
+        brightness = new int[width/barWidth];
+      }
 
-        void draw() 
-        {
-          int j = 0;
-          for (int i = 0; i <= (width-barWidth); i += barWidth) {  
-            noStroke();
-            if ((mouseX > i) && (mouseX < i+barWidth)) {
-              brightness[j] = mouseY;
-            }
-            fill(i, height, brightness[j]);
-            rect(i, 0, barWidth, height);  
-            j++;
+      void draw() 
+      {
+        int j = 0;
+        for (int i = 0; i <= (width-barWidth); i += barWidth) {  
+          noStroke();
+          if ((mouseX > i) && (mouseX < i+barWidth)) {
+            brightness[j] = mouseY;
           }
+          fill(i, height, brightness[j]);
+          rect(i, 0, barWidth, height);  
+          j++;
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

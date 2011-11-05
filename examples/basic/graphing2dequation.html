@@ -2,55 +2,53 @@
 <html>
   <head>
     <meta charset="utf=8">
-    <title>Graphing2DEquation</title>
+    <title>Graphing 2D Equation</title>
     <script type="text/javascript" src="../../processing.js"></script>
     <link type="text/css" rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Math</h4>
-    <h1>Graphing2DEquation</h1>
+    <h1>Graphing 2D Equation</h1>
     <p>There is a known bug in this example on some versions of Firefox: <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/240-graphing2dequation-fails-in-firefox#ticket-240-1">https://processing-js.lighthouseapp.com/projects/41284/tickets/240-graphing2dequation-fails-in-firefox#ticket-240-1</a></p>
     <p>by Daniel Shiffman. Graphics the following equation: sin(n*cos(r) + 5*theta) where n is a function of horizontal mouse location.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/graphing2dequation.html"><b>Original Processing.org Example:</b> Graphing2DEquation</a><br>
-      <script type="application/processing">
-        void setup() {
-          size(200,200);
-          frameRate(30);
-        }
+    <p><a href="http://processing.org/learning/basics/graphing2dequation.html"><b>Original Processing.org Example:</b> Graphing2DEquation</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() {
+        size(200,200);
+        frameRate(30);
+      }
 
-        void draw() {
-          loadPixels();
-          float n = (mouseX * 10.0) / width;
-          float w = 16.0;         // 2D space width
-          float h = 16.0;         // 2D space height
-          float dx = w / width;    // Increment x this amount per pixel
-          float dy = h / height;   // Increment y this amount per pixel
-          float x = -w/2;          // Start x at -1 * width / 2
-          for (int i = 0; i < width; i++) {
-            float y = -h/2;        // Start y at -1 * height / 2
-            for (int j = 0; j < height; j++) {
-              float r = sqrt((x*x) + (y*y));    // Convert cartesian to polar
-              float theta = atan2(y,x);         // Convert cartesian to polar
-              // Compute 2D polar coordinate function
-              float val = sin(n*cos(r) + 5 * theta);           // Results in a value between -1 and 1
-              //float val = cos(r);                            // Another simple function
-              //float val = sin(theta);                        // Another simple function
-              // Map resulting vale to grayscale value
-              pixels[i+j*width] = color((val + 1.0) * 255.0/2.0);     // Scale to between 0 and 255
-              y += dy;                // Increment y
-            }
-            x += dx;                  // Increment x
+      void draw() {
+        loadPixels();
+        float n = (mouseX * 10.0) / width;
+        float w = 16.0;         // 2D space width
+        float h = 16.0;         // 2D space height
+        float dx = w / width;    // Increment x this amount per pixel
+        float dy = h / height;   // Increment y this amount per pixel
+        float x = -w/2;          // Start x at -1 * width / 2
+        for (int i = 0; i < width; i++) {
+          float y = -h/2;        // Start y at -1 * height / 2
+          for (int j = 0; j < height; j++) {
+            float r = sqrt((x*x) + (y*y));    // Convert cartesian to polar
+            float theta = atan2(y,x);         // Convert cartesian to polar
+            // Compute 2D polar coordinate function
+            float val = sin(n*cos(r) + 5 * theta);           // Results in a value between -1 and 1
+            //float val = cos(r);                            // Another simple function
+            //float val = sin(theta);                        // Another simple function
+            // Map resulting vale to grayscale value
+            pixels[i+j*width] = color((val + 1.0) * 255.0/2.0);     // Scale to between 0 and 255
+            y += dy;                // Increment y
           }
-          updatePixels();
+          x += dx;                  // Increment x
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+        updatePixels();
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

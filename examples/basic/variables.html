@@ -10,32 +10,30 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Data</h4>
     <h1>Variables</h1>
     <p>Variables are used for storing values. In this example, changing the values of variables 'a' and 'b' significantly change the composition.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/variables.html"><b>Original Processing.org Example:</b> Variables</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        background(0);
-        stroke(153);
+    <p><a href="http://processing.org/learning/basics/variables.html"><b>Original Processing.org Example:</b> Variables</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      background(0);
+      stroke(153);
 
-        int a = 20;
-        int b = 50;
-        int c = a*8;
-        int d = a*9;
-        int e = b-a;
-        int f = b*2;
-        int g = f+e;
+      int a = 20;
+      int b = 50;
+      int c = a*8;
+      int d = a*9;
+      int e = b-a;
+      int f = b*2;
+      int g = f+e;
 
-        line(a, f, b, g);
-        line(b, e, b, g);
-        line(b, e, d, c);
-        line(a, e, d-e, c);
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      line(a, f, b, g);
+      line(b, e, b, g);
+      line(b, e, d, c);
+      line(a, e, d-e, c);
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

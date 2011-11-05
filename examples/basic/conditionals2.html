@@ -10,33 +10,31 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Control</h4>
     <h1>Conditionals2</h1>
     <p>We extend the language of conditionals by adding the keyword "else". This allows conditionals to ask two or more sequential questions, each with a different action.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/conditionals2.html"><b>Original Processing.org Example:</b> Conditionals2</a><br>
-      <script type="application/processing">
-        size(200, 200);
-        background(0);
+    <p><a href="http://processing.org/learning/basics/conditionals2.html"><b>Original Processing.org Example:</b> Conditionals2</a></p>
+    <script id='pjs_code' type="application/processing">
+      size(200, 200);
+      background(0);
 
-        for(int i=2; i<width-2; i+=2) {
-          // If 'i' divides by 20 with no remainder 
-          // draw the first line else draw the second line
-          if(i%20 == 0) {
-            stroke(255);
-            line(i, 40, i, height/2);
-          } else if (i%10 == 0) {
-            stroke(153);
-            line(i, 20, i, 180); 
-          } else {
-            stroke(102);
-            line(i, height/2, i, height-40);
-          }
+      for(int i=2; i<width-2; i+=2) {
+        // If 'i' divides by 20 with no remainder 
+        // draw the first line else draw the second line
+        if(i%20 == 0) {
+          stroke(255);
+          line(i, 40, i, height/2);
+        } else if (i%10 == 0) {
+          stroke(153);
+          line(i, 20, i, 180); 
+        } else {
+          stroke(102);
+          line(i, height/2, i, height-40);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

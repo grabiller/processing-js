@@ -10,49 +10,47 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Input</h4>
     <h1>Constrain</h1>
     <p>Move the mouse across the screen to move the circle. The program constrains the circle to its box.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/constrain.html"><b>Original Processing.org Example:</b> Constrain</a><br>
-      <script type="application/processing">
-        float mx;
-        float my;
-        float easing = 0.05;
-        float esize = 25.0;
-        int box = 30;
+    <p><a href="http://processing.org/learning/basics/constrain.html"><b>Original Processing.org Example:</b> Constrain</a></p>
+    <script id='pjs_code' type="application/processing">
+      float mx;
+      float my;
+      float easing = 0.05;
+      float esize = 25.0;
+      int box = 30;
 
-        void setup() 
-        {
-          size(200, 200);
-          noStroke(); 
-          smooth();
-          ellipseMode(CENTER_RADIUS);  
-        }
+      void setup() 
+      {
+        size(200, 200);
+        noStroke(); 
+        smooth();
+        ellipseMode(CENTER_RADIUS);  
+      }
 
-        void draw() 
-        { 
-          background(51);
-          
-          if(abs(mouseX - mx) > 0.1) {
-            mx = mx + (mouseX - mx) * easing;
-          }
-          if(abs(mouseY - my) > 0.1) {
-            my = my + (mouseY- my) * easing;
-          }
-          
-          float distance = esize * 2;
-          mx = constrain(mx, box+distance, width-box-distance);
-          my = constrain(my, box+distance, height-box-distance);
-          fill(76);
-          rect(box+esize, box+esize, box*3, box*3);
-          fill(255);  
-          ellipse(mx, my, esize, esize);
+      void draw() 
+      { 
+        background(51);
+        
+        if(abs(mouseX - mx) > 0.1) {
+          mx = mx + (mouseX - mx) * easing;
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+        if(abs(mouseY - my) > 0.1) {
+          my = my + (mouseY- my) * easing;
+        }
+        
+        float distance = esize * 2;
+        mx = constrain(mx, box+distance, width-box-distance);
+        my = constrain(my, box+distance, height-box-distance);
+        fill(76);
+        rect(box+esize, box+esize, box*3, box*3);
+        fill(255);  
+        ellipse(mx, my, esize, esize);
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>

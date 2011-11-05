@@ -10,40 +10,38 @@
     <h4><a href="http://processingjs.org/">Processing.js</a> > <a href="index.html">Basic Demos</a> > Structure</h4>
     <h1>Recursion</h1>
     <p>A demonstration of recursion, which means functions call themselves. Notice how the drawCircle() function calls itself at the end of its block. It continues to do this until the variable "level" is equal to 1.</p>
-    <p>
-      <a href="http://processing.org/learning/basics/recursion.html"><b>Original Processing.org Example:</b> Recursion</a><br>
-      <script type="application/processing">
-        void setup() 
-        {
-          size(200, 200);
-          noStroke();
-          smooth();
-          noLoop();
-        }
+    <p><a href="http://processing.org/learning/basics/recursion.html"><b>Original Processing.org Example:</b> Recursion</a></p>
+    <script id='pjs_code' type="application/processing">
+      void setup() 
+      {
+        size(200, 200);
+        noStroke();
+        smooth();
+        noLoop();
+      }
 
-        void draw() 
-        {
-          drawCircle(126, 170, 6);
-        }
+      void draw() 
+      {
+        drawCircle(126, 170, 6);
+      }
 
-        void drawCircle(int x, int radius, int level) 
-        {                    
-          float tt = 126 * level/4.0;
-          fill(tt);
-          ellipse(x, 100, radius*2, radius*2);      
-          if(level > 1) {
-            level = level - 1;
-            drawCircle(x - radius/2, radius/2, level);
-            drawCircle(x + radius/2, radius/2, level);
-          }
+      void drawCircle(int x, int radius, int level) 
+      {                    
+        float tt = 126 * level/4.0;
+        fill(tt);
+        ellipse(x, 100, radius*2, radius*2);      
+        if(level > 1) {
+          level = level - 1;
+          drawCircle(x - radius/2, radius/2, level);
+          drawCircle(x + radius/2, radius/2, level);
         }
-      </script>
-      <canvas></canvas>
-    </p>
-    <pre></pre>
+      }
+    </script>
+    <canvas></canvas>
+    <pre id="show_code"></pre>
     <script type="text/javascript">
-      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b>';
-      document.getElementsByTagName('pre')[0].innerHTML = pre + document.getElementsByTagName('script')[1].innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {8}/g,'<br>');
+      var pre = '<b>// All Examples Written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a><br>// unless otherwise stated.</b><br>';
+      document.getElementById('show_code').innerHTML = pre + document.getElementById('pjs_code').innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n {6}/g,'<br>');
     </script>
   </body>
 </html>
