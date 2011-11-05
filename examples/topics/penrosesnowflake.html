@@ -20,20 +20,19 @@
       
       PenroseSnowflakeLSystem ps;
       
-      void setup() {
-        size(356, 200);
-        stroke(255);
-        noFill();
+      void setup() 
+      {
+        size(200, 200);
         smooth();
         ps = new PenroseSnowflakeLSystem();
         ps.simulate(4);
       }
       
-      void draw() {
+      void draw() 
+      {
         background(0);
         ps.render();
       }
-      
       
       class LSystem 
       {
@@ -110,8 +109,6 @@
         }
       }
       
-      
-      
       class PenroseSnowflakeLSystem extends LSystem {
       
         String ruleF;
@@ -119,7 +116,7 @@
         PenroseSnowflakeLSystem() {
           axiom = "F3-F3-F3-F3-F";
           ruleF = "F3-F3-F45-F++F3-F";
-          startLength = 450.0;
+          startLength = 200.0f;
           theta = radians(18); 
           reset();
         }
@@ -162,6 +159,8 @@
           for (int i = 0; i < steps; i++) {
             char step = production.charAt(i);
             if (step == 'F') {
+              stroke(255);
+              noFill();
               for (int j = 0; j < repeats; j++) {
                 line(0,0,0, -drawLength);
                 translate(0, -drawLength);
@@ -187,7 +186,7 @@
               popMatrix();
             } 
             else if ( (step >= 48) && (step <= 57) ) {
-              repeats += step - 48;
+              repeats += (int)step - 48;
             }
           }
         }

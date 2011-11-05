@@ -15,7 +15,7 @@
       CA ca;   // An instance object to describe the Wolfram basic Cellular Automata
       
       void setup() {
-        size(356,200);
+        size(200,200);
         frameRate(30);
         background(0);
         int[] ruleset = {0,1,0,1,1,0,1,0};    // An initial rule system
@@ -96,8 +96,7 @@
             nextgen[i] = genRules(left,me,right); // Compute next generation state based on ruleset
           }
           // Copy the array into current value
-          //cells = (int[]) nextgen.clone(); // not implemented in pjs
-          cells = (int[]) subset(nextgen,0,nextgen.length);
+          cells = (int[]) nextgen.clone();
           generation++;
         }
         

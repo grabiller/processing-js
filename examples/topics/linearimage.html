@@ -13,7 +13,7 @@
     <p>Click and drag mouse up and down to control the signal. Press and hold any key to watch the scanning.</p>
     <p><a href="http://processing.org/learning/topics/linearimage.html"><b>Original Processing.org Example:</b> LinearImage</a></p>
     <script id='pjs_code' type="application/processing">
-      /* @pjs preload="data/florence03.jpg"; */
+      /* @pjs preload="data/cait.jpg"; */
       
       PImage a;
       boolean onetime = true;
@@ -24,9 +24,9 @@
       
       void setup() 
       {
-        size(200, 200);
+        size(33, 33);
         stroke(255);
-        a = loadImage("data/florence03.jpg");
+        a = loadImage("data/cait.jpg");
       
         for(int i=0; i<width*height; i++) {
           aPixels[i] = a.pixels[i];

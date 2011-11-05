@@ -20,14 +20,17 @@
       
       PentigreeLSystem ps;
       
-      void setup() {
-        size(356, 200);
+      void setup() 
+      {
+        size(200, 200);
+        frameRate(24);
         smooth();
         ps = new PentigreeLSystem();
         ps.simulate(3);
       }
       
-      void draw() {
+      void draw() 
+      {
         background(0);
         ps.render();
       }
@@ -51,7 +54,7 @@
       
           axiom = "F";
           rule = "F+F-F";
-          startLength = 90.0;
+          startLength = 90.0f;
           theta = radians(120.0);
           reset();
         }
@@ -108,7 +111,7 @@
           return newProduction;
         }
       }
-
+      
       
       class PentigreeLSystem extends LSystem {
       
@@ -119,7 +122,7 @@
         PentigreeLSystem() {
           axiom = "F-F-F-F-F";
           rule = "F-F++F+F-F-F";
-          startLength = 60.0;
+          startLength = 40.0;
           theta = radians(72);  
           reset();
         }

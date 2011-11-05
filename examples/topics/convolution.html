@@ -13,10 +13,10 @@
     <p>by <a href="http://www.shiffman.net">Daniel Shiffman</a>. Applys a convolution matrix to a portion of the index. Move mouse to apply filter to different parts of the image.</p>
     <p><a href="http://processing.org/learning/topics/convolution.html"><b>Original Processing.org Example:</b> Convolution</a></p>
     <script id='pjs_code' type="application/processing">
-      /* @pjs preload="data/end.jpg"; */
+      /* @pjs preload="data/cait.jpg"; */
       
       PImage img;
-      int w = 80;
+      int w = 10;
       
       // It's possible to convolve the image with 
       // many different matrices
@@ -26,9 +26,9 @@
                              { -1, -1, -1 } }; 
       
       void setup() {
-        size(200, 200);
+        size(33, 22);
         frameRate(30);
-        img = loadImage("data/end.jpg");
+        img = loadImage("data/cait.jpg");
       }
       
       void draw() {

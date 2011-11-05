@@ -14,16 +14,16 @@
     <script id='pjs_code' type="application/processing">
       World w;
       int numcells = 0;
-      int maxcells = 6700;
+      int maxcells = 4700;
       Cell[] cells = new Cell[maxcells];
       color spore_color;
       // set lower for smoother animation, higher for faster simulation
-      int runs_per_loop = 10000;
+      int runs_per_loop = 100;
       color black = color(0, 0, 0);
         
       void setup()
       {
-        size(356, 200);
+        size(200, 200);
         frameRate(24);
         clearscr();  
         w = new World();

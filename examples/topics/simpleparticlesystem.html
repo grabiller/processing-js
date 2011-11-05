@@ -15,18 +15,77 @@
       ParticleSystem ps;
       
       void setup() {
-        size(356, 200);
-        colorMode(RGB, 255, 255, 255, 100);
-        ps = new ParticleSystem(1, new PVector(width/2,height/2,0));
+        size(200,200);
+        frameRate(30);
+        colorMode(RGB,255,255,255,100);
+        ps = new ParticleSystem(1,new Vector3D(width/2,height/2,0));
         smooth();
       }
       
       void draw() {
         background(0);
         ps.run();
-        ps.addParticle(mouseX,mouseY);
+        ps.addParticle();
       }
       
+      
+      // A simple Particle class
+      
+      class Particle {
+        Vector3D loc;
+        Vector3D vel;
+        Vector3D acc;
+        float r;
+        float timer;
+      
+        // One constructor
+        Particle(Vector3D a, Vector3D v, Vector3D l, float r_) {
+          acc = a.copy();
+          vel = v.copy();
+          loc = l.copy();
+          r = r_;
+          timer = 100.0;
+        }
+        
+        // Another constructor (the one we are using here)
+        Particle(Vector3D l) {
+          acc = new Vector3D(0,0.05,0);
+          vel = new Vector3D(random(-1,1),random(-2,0),0);
+          loc = l.copy();
+          r = 10.0;
+          timer = 100.0;
+        }
+      
+      
+        void run() {
+          update();
+          render();
+        }
+      
+        // Method to update location
+        void update() {
+          vel.add(acc);
+          loc.add(vel);
+          timer -= 1.0;
+        }
+      
+        // Method to display
+        void render() {
+          ellipseMode(CENTER);
+          noStroke();
+          fill(255,timer);
+          ellipse(loc.x,loc.y,r,r);
+        }
+        
+        // Is the particle still useful?
+        boolean dead() {
+          if (timer <= 0.0) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
       
       
       // A class to describe a group of Particles
@@ -35,11 +94,11 @@
       class ParticleSystem {
       
         ArrayList particles;    // An arraylist for all the particles
-        PVector origin;        // An origin point for where particles are born
+        Vector3D origin;        // An origin point for where particles are birthed
       
-        ParticleSystem(int num, PVector v) {
+        ParticleSystem(int num, Vector3D v) {
           particles = new ArrayList();              // Initialize the arraylist
-          origin = v.get();                        // Store the origin point
+          origin = v.copy();                        // Store the origin point
           for (int i = 0; i < num; i++) {
             particles.add(new Particle(origin));    // Add "num" amount of particles to the arraylist
           }
@@ -59,10 +118,6 @@
         void addParticle() {
           particles.add(new Particle(origin));
         }
-        
-          void addParticle(float x, float y) {
-          particles.add(new Particle(new PVector(x,y)));
-        }
       
         void addParticle(Particle p) {
           particles.add(p);
@@ -81,71 +136,134 @@
       
       
       
+      // Simple Vector3D Class 
       
-      // A simple Particle class
+      public class Vector3D {
+        public float x;
+        public float y;
+        public float z;
       
-      class Particle {
-        PVector loc;
-        PVector vel;
-        PVector acc;
-        float r;
-        float timer;
-        
-        // Another constructor (the one we are using here)
-        Particle(PVector l) {
-          acc = new PVector(0,0.05,0);
-          vel = new PVector(random(-1,1),random(-2,0),0);
-          loc = l.get();
-          r = 10.0;
-          timer = 100.0;
+        Vector3D(float x_, float y_, float z_) {
+          x = x_; y = y_; z = z_;
         }
       
-        void run() {
-          update();
-          render();
-        }
-      
-        // Method to update location
-        void update() {
-          vel.add(acc);
-          loc.add(vel);
-          timer -= 1.0;
-        }
-      
-        // Method to display
-        void render() {
-          ellipseMode(CENTER);
-          stroke(255,timer);
-          fill(100,timer);
-          ellipse(loc.x,loc.y,r,r);
-          displayVector(vel,loc.x,loc.y,10);
+        Vector3D(float x_, float y_) {
+          x = x_; y = y_; z = 0f;
         }
         
-        // Is the particle still useful?
-        boolean dead() {
-          if (timer <= 0.0) {
-            return true;
-          } else {
-            return false;
+        Vector3D() {
+          x = 0f; y = 0f; z = 0f;
+        }
+      
+        void setX(float x_) {
+          x = x_;
+        }
+      
+        void setY(float y_) {
+          y = y_;
+        }
+      
+        void setZ(float z_) {
+          z = z_;
+        }
+        
+        void setXY(float x_, float y_) {
+          x = x_;
+          y = y_;
+        }
+        
+        void setXYZ(float x_, float y_, float z_) {
+          x = x_;
+          y = y_;
+          z = z_;
+        }
+      
+        void setXYZ(Vector3D v) {
+          x = v.x;
+          y = v.y;
+          z = v.z;
+        }
+        public float magnitude() {
+          return (float) Math.sqrt(x*x + y*y + z*z);
+        }
+      
+        public Vector3D copy() {
+          return new Vector3D(x,y,z);
+        }
+      
+        public Vector3D copy(Vector3D v) {
+          return new Vector3D(v.x, v.y,v.z);
+        }
+        
+        public void add(Vector3D v) {
+          x += v.x;
+          y += v.y;
+          z += v.z;
+        }
+      
+        public void sub(Vector3D v) {
+          x -= v.x;
+          y -= v.y;
+          z -= v.z;
+        }
+      
+        public void mult(float n) {
+          x *= n;
+          y *= n;
+          z *= n;
+        }
+      
+        public void div(float n) {
+          x /= n;
+          y /= n;
+          z /= n;
+        }
+      
+        public void normalize() {
+          float m = magnitude();
+          if (m > 0) {
+             div(m);
           }
         }
-        
-         void displayVector(PVector v, float x, float y, float scayl) {
-          pushMatrix();
-          float arrowsize = 4;
-          // Translate to location to render vector
-          translate(x,y);
-          stroke(255);
-          // Call vector heading function to get direction (note that pointing up is a heading of 0) and rotate
-          rotate(v.heading2D());
-          // Calculate length of vector & scale it to be bigger or smaller if necessary
-          float len = v.mag()*scayl;
-          // Draw three lines to make an arrow (draw pointing up since we've rotate to the proper direction)
-          line(0,0,len,0);
-          line(len,0,len-arrowsize,+arrowsize/2);
-          line(len,0,len-arrowsize,-arrowsize/2);
-          popMatrix();
-        } 
+      
+        public void limit(float max) {
+          if (magnitude() > max) {
+            normalize();
+            mult(max);
+          }
+        }
+      
+        public float heading2D() {
+          float angle = (float) Math.atan2(-y, x);
+          return -1*angle;
+        }
+      
+        public Vector3D add(Vector3D v1, Vector3D v2) {
+          Vector3D v = new Vector3D(v1.x + v2.x,v1.y + v2.y, v1.z + v2.z);
+          return v;
+        }
+      
+        public Vector3D sub(Vector3D v1, Vector3D v2) {
+          Vector3D v = new Vector3D(v1.x - v2.x,v1.y - v2.y,v1.z - v2.z);
+          return v;
+        }
+      
+        public Vector3D div(Vector3D v1, float n) {
+          Vector3D v = new Vector3D(v1.x/n,v1.y/n,v1.z/n);
+          return v;
+        }
+      
+        public Vector3D mult(Vector3D v1, float n) {
+          Vector3D v = new Vector3D(v1.x*n,v1.y*n,v1.z*n);
+          return v;
+        }
+      
+        public float distance (Vector3D v1, Vector3D v2) {
+          float dx = v1.x - v2.x;
+          float dy = v1.y - v2.y;
+          float dz = v1.z - v2.z;
+          return (float) Math.sqrt(dx*dx + dy*dy + dz*dz);
+        }
       
       }
     </script>
